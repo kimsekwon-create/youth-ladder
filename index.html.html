@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청년 희망사다리 금융지원 신청 — 금융산업공익재단 × 사회연대은행</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #006B77;
+  --navy-dark: #004D58;
+  --navy-mid: #008A98;
+  --navy-light: #E6F5F7;
+  --navy-pale: #F0FAFB;
+  --gold: #2E7D8A;
+  --gold-bright: #00A3B5;
+  --gold-light: #E6F5F7;
+  --gold-pale: #F0FAFB;
+  --red-acc: #C0392B;
+  --green: #1A7A5E;
+  --green-light: #E6F5F0;
+  --text: #0D2226;
+  --text-mid: #2E4A50;
+  --text-muted: #5A7A82;
+  --border: #B8D8DC;
+  --border-light: #D6EDEF;
+  --white: #FFFFFF;
+  --bg: #F2F9FA;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --shadow: 0 4px 20px rgba(0,107,119,.08);
+  --shadow-lg: 0 12px 48px rgba(0,107,119,.14);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Noto Sans KR',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.65;
+}
+
+/* ── HEADER ─────────────────────────── */
+.site-header{
+  background:linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+  padding:0 24px;
+  position:sticky;top:0;z-index:200;
+  border-bottom:3px solid rgba(255,255,255,0.2);
+}
+.header-inner{
+  max-width:1000px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.header-logos{display:flex;align-items:center;gap:18px}
+.logo-block{display:flex;align-items:center;gap:10px}
+.logo-mark{
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:var(--navy-dark);
+}
+.logo-mark.kfif{background:rgba(255,255,255,0.95); color:var(--navy-dark);}
+.logo-mark.ssb{background:rgba(255,255,255,0.2); color:#fff; border:1px solid rgba(255,255,255,0.4);}
+.logo-text{font-size:13px;font-weight:700;color:#fff;line-height:1.25}
+.logo-sub{font-size:10px;color:rgba(255,255,255,.55);font-weight:400}
+.logo-divider{width:1px;height:28px;background:rgba(255,255,255,.2)}
+.header-tag{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:#fff;font-size:11px;font-weight:600;
+  padding:4px 12px;border-radius:20px;letter-spacing:.03em;
+}
+.header-year{
+  color:rgba(255,255,255,0.85);font-size:13px;font-weight:700;
+}
+
+/* ── PROGRESS BAR ───────────────────── */
+.progress-wrap{
+  background:var(--white);
+  border-bottom:1px solid var(--border-light);
+  box-shadow:0 2px 8px rgba(0,45,114,.05);
+}
+.progress-inner{
+  max-width:1000px;margin:0 auto;padding:0 24px;
+}
+.steps-row{
+  display:flex;align-items:center;padding:14px 0;
+}
+.step-dot{
+  display:flex;align-items:center;gap:10px;flex:1;
+  padding:8px 12px;border-radius:var(--radius);
+  cursor:default;transition:background .2s;
+  position:relative;
+}
+.step-dot.active{background:var(--navy-pale);}
+.step-circle{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;
+  background:var(--border);color:var(--text-muted);
+  transition:all .3s;
+}
+.step-dot.active .step-circle{background:var(--navy);color:#fff}
+.step-dot.done .step-circle{background:var(--green);color:#fff}
+.step-name{font-size:12px;font-weight:500;color:var(--text-muted)}
+.step-dot.active .step-name{color:var(--navy);font-weight:700}
+.step-dot.done .step-name{color:var(--green)}
+.step-sep{color:var(--border);font-size:18px;margin:0 2px;flex-shrink:0}
+
+/* ── HERO ───────────────────────────── */
+.hero{
+  background:linear-gradient(160deg,var(--navy-dark) 0%,var(--navy) 50%,var(--navy-mid) 100%);
+  padding:56px 24px 52px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;right:-80px;top:-80px;
+  width:380px;height:380px;border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.hero::after{
+  content:'';position:absolute;left:40%;bottom:-60px;
+  width:260px;height:260px;border-radius:50%;
+  background:rgba(0,163,181,.08);
+}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:#fff;font-size:12px;font-weight:700;
+  padding:5px 14px;border-radius:20px;margin-bottom:20px;
+  letter-spacing:.04em;
+}
+.hero h1{
+  font-family:'Noto Serif KR',serif;
+  font-size:36px;font-weight:700;color:#fff;
+  line-height:1.3;margin-bottom:14px;
+}
+.hero h1 em{color:rgba(255,255,255,0.9);font-style:normal;border-bottom:2px solid rgba(255,255,255,0.5);}
+.hero p{
+  font-size:15px;color:rgba(255,255,255,.78);
+  line-height:1.8;max-width:560px;margin-bottom:28px;
+}
+.hero-stats{
+  display:flex;gap:32px;flex-wrap:wrap;
+}
+.stat-item{
+  display:flex;flex-direction:column;gap:2px;
+}
+.stat-num{font-size:22px;font-weight:700;color:#fff}
+.stat-num span{font-size:13px;font-weight:400;color:rgba(255,255,255,.6);margin-left:4px}
+.stat-label{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.04em}
+.hero-divider{
+  width:1px;height:48px;background:rgba(255,255,255,.15);
+  align-self:center;
+}
+
+/* ── MAIN CONTAINER ──────────────────── */
+.main{max-width:1000px;margin:0 auto;padding:36px 24px 80px}
+
+/* ── CARDS ───────────────────────────── */
+.card{
+  background:var(--white);border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;margin-bottom:20px;
+}
+.card-header{
+  padding:20px 28px 18px;
+  border-bottom:1px solid var(--border-light);
+  display:flex;align-items:flex-start;gap:14px;
+}
+.card-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;margin-top:1px;
+}
+.card-title{font-size:16px;font-weight:700;color:var(--navy-dark)}
+.card-desc{font-size:13px;color:var(--text-muted);margin-top:3px;line-height:1.5}
+.card-body{padding:24px 28px}
+
+/* ── PAGE ───────────────────────────── */
+.page{display:none}
+.page.active{display:block;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── INFO BOX ───────────────────────── */
+.info-box{
+  background:var(--navy-pale);border:1px solid #C8D8F0;
+  border-radius:var(--radius);padding:14px 18px;
+  font-size:13px;color:var(--navy);
+  display:flex;gap:10px;align-items:flex-start;margin-bottom:18px;
+}
+.warn-box{
+  background:#FFF8E1;border:1px solid #F0D080;
+  border-radius:var(--radius);padding:14px 18px;
+  font-size:13px;color:#7A5500;
+  display:flex;gap:10px;align-items:flex-start;margin-bottom:18px;
+}
+
+/* ── SECTION TITLE ───────────────────── */
+.sec-title{
+  font-size:12px;font-weight:700;color:var(--navy);
+  border-left:3px solid var(--navy);padding-left:10px;
+  margin:26px 0 14px;letter-spacing:.06em;text-transform:uppercase;
+}
+.sec-title:first-child{margin-top:0}
+
+/* ── FORM ───────────────────────────── */
+.form-row{margin-bottom:18px}
+.form-label{
+  display:block;font-size:13px;font-weight:600;
+  color:var(--text-mid);margin-bottom:7px;
+}
+.form-label .req{color:var(--red-acc);margin-left:2px}
+.form-label .opt{color:var(--text-muted);font-size:11px;font-weight:400;margin-left:4px}
+.form-input,.form-select,.form-textarea{
+  width:100%;padding:11px 14px;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  font-size:14px;font-family:inherit;color:var(--text);
+  background:var(--white);outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  border-color:var(--navy);box-shadow:0 0 0 3px rgba(0,45,114,.1);
+}
+.form-input::placeholder{color:var(--border)}
+.form-textarea{resize:vertical;min-height:100px;line-height:1.65}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+
+/* ── RADIO / CHECK ───────────────────── */
+.radio-group,.check-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.radio-btn,.check-btn{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 16px;border:1.5px solid var(--border);
+  border-radius:24px;cursor:pointer;font-size:13px;
+  font-weight:500;color:var(--text-mid);background:var(--white);
+  transition:all .2s;user-select:none;font-family:inherit;
+}
+.radio-btn:hover,.check-btn:hover{border-color:var(--navy-mid);background:var(--navy-pale)}
+.radio-btn input,.check-btn input{display:none}
+.radio-btn.selected,.check-btn.selected{
+  border-color:var(--navy);background:var(--navy-pale);
+  color:var(--navy);font-weight:700;
+}
+.radio-dot{
+  width:14px;height:14px;border-radius:50%;
+  border:2px solid var(--border);transition:all .2s;flex-shrink:0;
+}
+.radio-btn.selected .radio-dot{border-color:var(--navy);background:var(--navy)}
+.check-mark{
+  width:14px;height:14px;border-radius:3px;
+  border:2px solid var(--border);transition:all .2s;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.check-btn.selected .check-mark{border-color:var(--navy);background:var(--navy);color:#fff;font-size:9px;font-weight:700}
+.check-btn.selected .check-mark::after{content:'✓'}
+
+/* ── LIKERT ──────────────────────────── */
+.likert-q{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border-light)}
+.likert-q:last-child{border-bottom:none;padding-bottom:0}
+.likert-factor{
+  font-size:11px;font-weight:700;color:var(--navy);
+  background:var(--navy-pale);padding:2px 8px;border-radius:8px;
+  display:inline-block;margin-bottom:6px;letter-spacing:.03em;
+}
+.likert-text{font-size:14px;font-weight:500;color:var(--text);margin-bottom:10px;line-height:1.55}
+.likert-scale{display:flex;align-items:center;gap:8px}
+.likert-label{font-size:10px;color:var(--text-muted);flex-shrink:0;max-width:54px;text-align:center;line-height:1.3}
+.likert-opts{display:flex;gap:6px;flex:1;justify-content:center}
+.likert-opt{
+  width:38px;height:38px;border-radius:50%;
+  border:2px solid var(--border);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:600;color:var(--text-muted);
+  transition:all .2s;background:var(--white);font-family:inherit;
+}
+.likert-opt:hover{border-color:var(--navy-mid);color:var(--navy)}
+.likert-opt.selected{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* ── ELIGIBILITY ─────────────────────── */
+.elig-hero{
+  background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy-mid) 100%);
+  border-radius:var(--radius-lg);padding:36px 32px;margin-bottom:24px;
+  color:#fff;position:relative;overflow:hidden;
+}
+.elig-hero::before{content:'';position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04)}
+.elig-hero h2{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:700;margin-bottom:8px;position:relative;z-index:1}
+.elig-hero p{font-size:13px;opacity:.8;line-height:1.7;max-width:480px;position:relative;z-index:1}
+.elig-q{padding:18px 0;border-bottom:1px solid var(--border-light)}
+.elig-q:last-child{border-bottom:none}
+.elig-q-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.elig-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:6px;
+  background:var(--navy-pale);color:var(--navy);
+  font-size:11px;font-weight:700;flex-shrink:0;
+}
+.stop-msg{
+  background:#FFF0F0;border:1.5px solid #FFCDD2;border-radius:var(--radius);
+  padding:16px 20px;margin-top:12px;animation:fadeUp .25s ease;
+}
+.stop-msg h4{font-size:14px;font-weight:700;color:#C62828;margin-bottom:4px}
+.stop-msg p{font-size:13px;color:#B71C1C;line-height:1.55}
+.pass-msg{
+  background:var(--green-light);border:1.5px solid #A8D5B8;border-radius:var(--radius);
+  padding:16px 20px;margin-top:12px;text-align:center;animation:fadeUp .25s ease;
+}
+.pass-msg h4{font-size:14px;font-weight:700;color:var(--green);margin-bottom:4px}
+.pass-msg p{font-size:13px;color:#1B5E20}
+
+/* ── INCOME CALC ─────────────────────── */
+.calc-box{
+  background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);
+  border-radius:var(--radius);padding:18px 20px;color:#fff;margin-top:8px;
+}
+.calc-title{font-size:11px;opacity:.65;margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase}
+.calc-row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0;opacity:.85}
+.calc-total{border-top:1px solid rgba(255,255,255,.25);margin-top:8px;padding-top:8px}
+.calc-total .calc-row{font-weight:700;font-size:16px;opacity:1}
+
+/* ── VULNERABILITY TAG ───────────────── */
+.vuln-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  background:#FFF3E0;border:1px solid #FFB74D;
+  color:#E65100;font-size:11px;font-weight:700;
+  padding:3px 10px;border-radius:10px;margin:2px;
+}
+
+/* ── BUTTONS ─────────────────────────── */
+.btn{
+  padding:14px 32px;border-radius:var(--radius);
+  font-size:15px;font-weight:700;cursor:pointer;
+  border:none;font-family:inherit;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .2s;
+}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-mid)}
+.btn-primary:disabled{background:var(--border);color:var(--text-muted);cursor:not-allowed}
+.btn-gold{background:var(--gold-bright);color:var(--navy-dark)}
+.btn-gold:hover{background:var(--gold)}
+.btn-back{
+  background:none;border:1.5px solid var(--border);
+  color:var(--text-muted);padding:13px 24px;border-radius:var(--radius);
+  font-size:14px;cursor:pointer;font-family:inherit;transition:all .2s;
+}
+.btn-back:hover{border-color:var(--text-muted);color:var(--text)}
+.btn-group{display:flex;gap:12px;margin-top:28px}
+.btn-group .btn-primary{flex:1}
+
+/* ── COMPLETE SCREEN ──────────────────── */
+.complete-wrap{text-align:center;padding:56px 28px}
+.complete-icon{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--green-light);margin:0 auto 24px;
+  display:flex;align-items:center;justify-content:center;font-size:36px;
+}
+.complete-wrap h2{
+  font-family:'Noto Serif KR',serif;
+  font-size:26px;font-weight:700;color:var(--navy-dark);margin-bottom:12px;
+}
+.complete-wrap p{font-size:14px;color:var(--text-mid);line-height:1.85}
+.receipt-box{
+  background:var(--navy-pale);border:1.5px solid #C8D8F0;
+  border-radius:var(--radius);padding:18px 24px;margin:24px auto;
+  max-width:380px;
+}
+.receipt-label{font-size:11px;color:var(--text-muted);letter-spacing:.06em;margin-bottom:4px}
+.receipt-num{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.04em;font-family:'Noto Serif KR',serif}
+
+/* ── FILE UPLOAD ─────────────────────── */
+.file-upload{
+  display:flex;align-items:center;gap:10px;padding:14px 18px;
+  border:2px dashed var(--border);border-radius:var(--radius);
+  cursor:pointer;background:var(--white);
+  transition:border-color .2s,background .2s;
+}
+.file-upload:hover{border-color:var(--navy-mid);background:var(--navy-pale)}
+.file-upload input{display:none}
+.file-name{font-size:12px;color:var(--green);margin-top:6px;display:none}
+
+/* ── KCB BADGE ───────────────────────── */
+.kcb-row{
+  background:var(--navy-pale);border:1px solid #C8D8F0;
+  border-radius:var(--radius);padding:11px 16px;
+  display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy);
+  margin-bottom:12px;
+}
+.kcb-badge{
+  background:var(--navy);color:#fff;font-size:9px;font-weight:700;
+  padding:2px 7px;border-radius:8px;flex-shrink:0;letter-spacing:.04em;
+}
+
+/* ── DEBT TABLE ─────────────────────── */
+.debt-table{width:100%;border-collapse:collapse;font-size:12px}
+.debt-table th{
+  background:var(--bg);color:var(--text-muted);font-size:10px;font-weight:700;
+  padding:8px 10px;border:1px solid var(--border);text-align:center;letter-spacing:.03em;
+}
+.debt-table td{padding:7px 8px;border:1px solid var(--border);vertical-align:middle}
+.debt-table .form-input{padding:6px 10px;font-size:12px}
+.add-row-btn{
+  margin-top:8px;font-size:13px;color:var(--navy);
+  background:var(--navy-pale);border:1.5px dashed #C8D8F0;
+  border-radius:var(--radius);padding:8px 14px;cursor:pointer;
+  font-weight:600;transition:all .2s;
+  display:inline-flex;align-items:center;gap:6px;font-family:inherit;
+}
+.add-row-btn:hover{background:#D6E8FF}
+
+/* ── RESPONSIVE ──────────────────────── */
+@media(max-width:640px){
+  .hero h1{font-size:26px}
+  .hero-stats{gap:20px}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .steps-row{overflow-x:auto;gap:0}
+  .step-name{display:none}
+  .card-body,.card-header{padding:16px 18px}
+  .main{padding:20px 16px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- ────── HEADER ────── -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logos">
+      <div class="logo-block">
+        <div class="logo-mark kfif">금</div>
+        <div>
+          <div class="logo-text">금융산업공익재단</div>
+          <div class="logo-sub">Korea Financial Industry Foundation</div>
+        </div>
+      </div>
+      <div class="logo-divider"></div>
+      <div class="logo-block">
+        <div class="logo-mark ssb" style="color:#fff">함</div>
+        <div>
+          <div class="logo-text">사회연대은행</div>
+          <div class="logo-sub">함께만드는세상</div>
+        </div>
+      </div>
+    </div>
+    <span class="header-tag">2026 청년 희망사다리 금융지원사업</span>
+  </div>
+</header>
+
+<!-- ────── HERO ────── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🤝 금융산업공익재단 × 사회연대은행 공동지원사업</div>
+    <h1>청년의 내일을 잇는<br><em>희망사다리 금융지원</em></h1>
+    <p>고금리 다중채무로 어려움을 겪고 있는 만 19~39세 청년에게<br>연 1% 고정금리, 최대 500만 원을 지원합니다.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">연 1%<span>고정금리</span></div>
+        <div class="stat-label">시중 대비 파격 금리</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">최대 500<span>만 원</span></div>
+        <div class="stat-label">대출 지원금액</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">2년<span>분할상환</span></div>
+        <div class="stat-label">원리금 균등 방식</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">2026.03.30<span></span></div>
+        <div class="stat-label">수시 모집 시작</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ────── PROGRESS ────── -->
+<div class="progress-wrap" id="progress-bar">
+  <div class="progress-inner">
+    <div class="steps-row">
+      <div class="step-dot active" id="si0"><div class="step-circle">1</div><div class="step-name">자격확인</div></div>
+      <span class="step-sep">›</span>
+      <div class="step-dot" id="si1"><div class="step-circle">2</div><div class="step-name">기본정보</div></div>
+      <span class="step-sep">›</span>
+      <div class="step-dot" id="si2"><div class="step-circle">3</div><div class="step-name">재무현황</div></div>
+      <span class="step-sep">›</span>
+      <div class="step-dot" id="si3"><div class="step-circle">4</div><div class="step-name">취약성·목적</div></div>
+      <span class="step-sep">›</span>
+      <div class="step-dot" id="si4"><div class="step-circle">5</div><div class="step-name">심리진단</div></div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+<!-- ══════════════════════════════════
+     STEP 0 — 자격요건 확인
+══════════════════════════════════ -->
+<div class="page active" id="page0">
+  <div class="elig-hero">
+    <div style="font-size:11px;font-weight:700;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:14px;letter-spacing:.05em">2026 청년 희망사다리 금융지원 × KFIF</div>
+    <h2>신청 전 자격요건을 먼저 확인하세요</h2>
+    <p>금융산업공익재단과 사회연대은행이 함께하는 고금리 다중채무 청년 자립 지원사업입니다.<br>아래 5개 항목을 모두 충족해야 신청이 가능합니다.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:var(--navy-light)">✅</div>
+      <div>
+        <div class="card-title">자격요건 자가진단</div>
+        <div class="card-desc">5개 항목 모두 '예'인 경우에만 신청 가능합니다</div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="elig-q" id="eq1">
+        <div class="elig-q-label"><span class="elig-num">1</span> 만 19세 ~ 39세 청년입니까?</div>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="eligCheck(this,'eq1','pass')"><input type="radio" name="eq1"><div class="radio-dot"></div>예</label>
+          <label class="radio-btn" onclick="eligCheck(this,'eq1','fail')"><input type="radio" name="eq1"><div class="radio-dot"></div>아니오</label>
+        </div>
+        <div class="stop-msg" id="eq1-stop" style="display:none"><h4>⚠ 연령 기준 미충족</h4><p>만 19~39세 청년을 대상으로 합니다.</p></div>
+      </div>
+
+      <div class="elig-q" id="eq2">
+        <div class="elig-q-label"><span class="elig-num">2</span> 현재 소득이 있습니까? (근로·사업·기타 포함)</div>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="eligCheck(this,'eq2','pass')"><input type="radio" name="eq2"><div class="radio-dot"></div>예, 소득 있음</label>
+          <label class="radio-btn" onclick="eligCheck(this,'eq2','fail')"><input type="radio" name="eq2"><div class="radio-dot"></div>아니오</label>
+        </div>
+        <div class="stop-msg" id="eq2-stop" style="display:none"><h4>⚠ 소득 없음</h4><p>소득이 있는 분만 신청 가능합니다.</p></div>
+      </div>
+
+      <div class="elig-q" id="eq3">
+        <div class="elig-q-label"><span class="elig-num">3</span> 신용점수가 낮거나 금융이력이 부족하여 일반 금융기관 대출이 어려운 상황입니까?</div>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="eligCheck(this,'eq3','pass')"><input type="radio" name="eq3"><div class="radio-dot"></div>예</label>
+          <label class="radio-btn" onclick="eligCheck(this,'eq3','fail')"><input type="radio" name="eq3"><div class="radio-dot"></div>아니오 (일반 대출 이용 가능)</label>
+        </div>
+        <div class="stop-msg" id="eq3-stop" style="display:none"><h4>⚠ 일반 금융기관 이용 권장</h4><p>신용등급이 양호한 경우 일반 금융기관을 이용하시기 바랍니다.</p></div>
+      </div>
+
+      <div class="elig-q" id="eq4">
+        <div class="elig-q-label"><span class="elig-num">4</span> 현재 금융기관 연체 또는 채무불이행 상태가 아닙니까?</div>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="eligCheck(this,'eq4','pass')"><input type="radio" name="eq4"><div class="radio-dot"></div>맞습니다 (연체·채무불이행 없음)</label>
+          <label class="radio-btn" onclick="eligCheck(this,'eq4','fail')"><input type="radio" name="eq4"><div class="radio-dot"></div>현재 연체 또는 채무불이행 중</label>
+        </div>
+        <div class="stop-msg" id="eq4-stop" style="display:none"><h4>⚠ 현재 연체·채무불이행 상태</h4><p>연체 해소 후 재신청 가능합니다.</p></div>
+      </div>
+
+      <div class="elig-q" id="eq5">
+        <div class="elig-q-label"><span class="elig-num">5</span> 국세체납 또는 압류 처분이 없습니까?</div>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="eligCheck(this,'eq5','pass')"><input type="radio" name="eq5"><div class="radio-dot"></div>없습니다</label>
+          <label class="radio-btn" onclick="eligCheck(this,'eq5','fail')"><input type="radio" name="eq5"><div class="radio-dot"></div>있습니다</label>
+        </div>
+        <div class="stop-msg" id="eq5-stop" style="display:none"><h4>⚠ 국세체납·압류 처분 있음</h4><p>해당 사항 해소 후 재신청 바랍니다.</p></div>
+      </div>
+
+      <div class="pass-msg" id="elig-pass" style="display:none">
+        <h4>🎉 자격요건을 모두 충족합니다!</h4>
+        <p>기본정보 입력으로 이동합니다.</p>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" id="elig-next" onclick="goStep(1)" disabled style="opacity:.45">기본정보 입력 시작 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STEP 1 — 기본정보
+══════════════════════════════════ -->
+<div class="page" id="page1">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:#EEF3FB;font-size:18px">👤</div>
+      <div><div class="card-title">신청자 기본정보</div><div class="card-desc">대출 심사를 위한 기본 인적사항을 입력해 주세요</div></div>
+    </div>
+    <div class="card-body">
+      <div class="kcb-row"><span class="kcb-badge">KCB</span> 신용정보는 본인동의 후 KCB에서 자동 수집됩니다. 별도 입력 불필요.</div>
+
+      <p class="sec-title">인적 사항</p>
+      <div class="grid2">
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">성명<span class="req">*</span></label>
+          <input class="form-input" type="text" id="f-name" placeholder="실명 입력">
+        </div>
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">생년월일<span class="req">*</span></label>
+          <input class="form-input" type="text" id="f-birth" placeholder="YYYYMMDD" maxlength="8">
+        </div>
+      </div>
+      <div class="form-row" style="margin-top:14px">
+        <label class="form-label">성별<span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="toggleRadio(this,'gender')"><input type="radio" name="gender" value="남"><div class="radio-dot"></div>남성</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'gender')"><input type="radio" name="gender" value="여"><div class="radio-dot"></div>여성</label>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">휴대전화<span class="req">*</span></label>
+          <input class="form-input" type="tel" id="f-phone" placeholder="010-0000-0000">
+        </div>
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">이메일<span class="req">*</span></label>
+          <input class="form-input" type="email" id="f-email" placeholder="example@email.com">
+        </div>
+      </div>
+
+      <p class="sec-title" style="margin-top:24px">주소 및 거주</p>
+      <div class="form-row">
+        <label class="form-label">현 거주지<span class="req">*</span></label>
+        <input class="form-input" type="text" id="f-address" placeholder="시 · 구 · 도로명 주소">
+      </div>
+      <div class="form-row">
+        <label class="form-label">거주 형태<span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="toggleRadio(this,'residence')"><input type="radio" name="residence" value="자가"><div class="radio-dot"></div>자가</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'residence')"><input type="radio" name="residence" value="전세"><div class="radio-dot"></div>전세</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'residence')"><input type="radio" name="residence" value="월세"><div class="radio-dot"></div>월세</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'residence')"><input type="radio" name="residence" value="가족동거"><div class="radio-dot"></div>가족동거</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'residence')"><input type="radio" name="residence" value="고시원·기타"><div class="radio-dot"></div>고시원·기타</label>
+        </div>
+      </div>
+
+      <p class="sec-title">직장 정보</p>
+      <div class="form-row">
+        <label class="form-label">직장명<span class="req">*</span></label>
+        <input class="form-input" type="text" id="f-employer" placeholder="현 직장명 (무직인 경우 '무직' 기재)">
+      </div>
+      <div class="grid2">
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">재직기간</label>
+          <input class="form-input" type="text" id="f-work-period" placeholder="예) 2024.03~현재">
+        </div>
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">근무 형태<span class="req">*</span></label>
+          <select class="form-select" id="f-work-type">
+            <option value="">선택</option>
+            <option>정규직</option><option>계약직</option><option>일용직</option>
+            <option>자영업</option><option>프리랜서</option><option>무직</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="sec-title">가구 정보</p>
+      <div class="grid2">
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">가구원수<span class="req">*</span></label>
+          <select class="form-select" id="f-household">
+            <option value="">선택</option>
+            <option>1인</option><option>2인</option><option>3인</option><option>4인</option><option>5인 이상</option>
+          </select>
+        </div>
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">가구 구성</label>
+          <select class="form-select" id="f-household-type">
+            <option value="">선택</option>
+            <option>단독</option><option>부부</option><option>부모+자녀</option><option>한부모</option><option>기타</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-back" onclick="goStep(0)">← 이전</button>
+        <button class="btn btn-primary" onclick="goStep(2)">다음: 재무현황 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STEP 2 — 재무현황
+══════════════════════════════════ -->
+<div class="page" id="page2">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:var(--navy-light);font-size:18px">💰</div>
+      <div><div class="card-title">소득 및 재무현황</div><div class="card-desc">소득·지출·부채 현황을 입력해 주세요. 정확할수록 심사에 유리합니다.</div></div>
+    </div>
+    <div class="card-body">
+
+      <p class="sec-title">소득</p>
+      <div class="form-row">
+        <label class="form-label">월 소득 구간<span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="toggleRadio(this,'income');updateCalc()"><input type="radio" name="income" value="50" data-mid="50"><div class="radio-dot"></div>50만 원 미만</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income');updateCalc()"><input type="radio" name="income" value="100" data-mid="75"><div class="radio-dot"></div>50~100만 원</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income');updateCalc()"><input type="radio" name="income" value="150" data-mid="125"><div class="radio-dot"></div>100~150만 원</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income');updateCalc()"><input type="radio" name="income" value="200" data-mid="175"><div class="radio-dot"></div>150~200만 원</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income');updateCalc()"><input type="radio" name="income" value="250" data-mid="225"><div class="radio-dot"></div>200~250만 원</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income');updateCalc()"><input type="radio" name="income" value="300" data-mid="300"><div class="radio-dot"></div>250만 원 이상</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">소득 증빙 방법<span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="toggleRadio(this,'income-proof')"><input type="radio" name="income-proof" value="근로소득원천징수"><div class="radio-dot"></div>근로소득 원천징수</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income-proof')"><input type="radio" name="income-proof" value="사업소득확인서"><div class="radio-dot"></div>사업소득 확인서</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income-proof')"><input type="radio" name="income-proof" value="통장거래내역"><div class="radio-dot"></div>통장 거래내역</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'income-proof')"><input type="radio" name="income-proof" value="기타"><div class="radio-dot"></div>기타</label>
+        </div>
+      </div>
+
+      <p class="sec-title">월 지출 내역</p>
+      <div class="grid3">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">주거비</label><input class="form-input" type="number" id="exp-rent" placeholder="만 원" oninput="updateCalc()"></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">식비</label><input class="form-input" type="number" id="exp-food" placeholder="만 원" oninput="updateCalc()"></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">의료·약값</label><input class="form-input" type="number" id="exp-medical" placeholder="만 원" oninput="updateCalc()"></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">통신비</label><input class="form-input" type="number" id="exp-comm" placeholder="만 원" oninput="updateCalc()"></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">대출 상환금</label><input class="form-input" type="number" id="exp-loan" placeholder="만 원" oninput="updateCalc()"></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">기타 지출</label><input class="form-input" type="number" id="exp-etc" placeholder="만 원" oninput="updateCalc()"></div>
+      </div>
+      <div class="calc-box" style="margin-top:16px">
+        <div class="calc-title">순 가처분소득 자동 계산</div>
+        <div class="calc-row"><span>월 소득 (구간 중간값)</span><span id="ci">— 만 원</span></div>
+        <div class="calc-row"><span>월 지출 합계</span><span id="ce">— 만 원</span></div>
+        <div class="calc-total"><div class="calc-row"><span>순 가처분소득</span><span id="cn" style="color:#7FE0A8">— 만 원</span></div></div>
+      </div>
+
+      <p class="sec-title" style="margin-top:24px">부채 현황</p>
+      <div class="info-box"><span>ℹ️</span><span>현재 보유하고 있는 모든 대출(은행·저축은행·카드론·대부업 등)을 입력해 주세요.</span></div>
+      <div style="overflow-x:auto">
+        <table class="debt-table">
+          <thead>
+            <tr>
+              <th>유형</th><th>기관명</th><th>금리(%)</th><th>잔액(만원)</th><th>월납(만원)</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="debt-tbody">
+            <tr>
+              <td><select class="form-input" style="min-width:100px;font-size:12px;padding:6px 8px"><option value="">유형</option><option>은행</option><option>저축은행</option><option>카드사</option><option>캐피탈</option><option>대부업</option><option>정책금융</option><option>기타</option></select></td>
+              <td><input class="form-input" type="text" placeholder="기관명" style="min-width:80px"></td>
+              <td><input class="form-input" type="number" placeholder="0.0" style="min-width:55px"></td>
+              <td><input class="form-input" type="number" placeholder="0" style="min-width:65px"></td>
+              <td><input class="form-input" type="number" placeholder="0" style="min-width:65px"></td>
+              <td><button onclick="removeRow(this)" style="background:none;border:none;color:#CC4444;cursor:pointer;font-size:18px;padding:0 4px">×</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="add-row-btn" onclick="addDebtRow()">+ 부채 항목 추가</button>
+
+      <div class="btn-group">
+        <button class="btn-back" onclick="goStep(1)">← 이전</button>
+        <button class="btn btn-primary" onclick="goStep(3)">다음: 취약성·목적 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STEP 3 — 취약성 지표 + 대출 목적
+══════════════════════════════════ -->
+<div class="page" id="page3">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:var(--green-light);font-size:18px">🌱</div>
+      <div><div class="card-title">취약성 지표 및 대출 목적</div><div class="card-desc">지원 우선순위 결정과 맞춤 심사를 위해 사용됩니다</div></div>
+    </div>
+    <div class="card-body">
+
+      <p class="sec-title">복지 수급 및 취약 유형</p>
+      <div class="form-row">
+        <label class="form-label">정부 지원 수급 여부 <span class="opt">(해당 항목 모두 선택)</span></label>
+        <div class="check-group" id="welfare-group">
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>해당없음</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>기초수급 (생계급여)</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>기초수급 (주거급여)</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>기초수급 (의료급여)</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>차상위계층</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>한부모가족 지원</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>장애인 등록</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">금융 취약 사유 <span class="opt">(해당 항목 모두 선택)</span></label>
+        <div class="check-group" id="fin-vuln-group">
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>신용점수 낮음 (하위 20%)</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>금융이력 부족 (씬파일러)</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>대출비교서비스 부결 이력</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>고금리 대출 다수 보유</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>채무조정 이력</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">생활 위기 유형 <span class="opt">(해당 항목 모두 선택)</span></label>
+        <div class="check-group" id="crisis-group">
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>실직·소득 감소</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>의료비 위기</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>주거 불안정</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>가족 부양 부담</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>학자금 부담</label>
+          <label class="check-btn" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-mark"></div>자연재해·사고</label>
+        </div>
+      </div>
+
+      <p class="sec-title" style="margin-top:28px">대출 신청 내용</p>
+      <div class="grid2">
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">신청 금액<span class="req">*</span></label>
+          <select class="form-select" id="f-amount">
+            <option value="">선택</option>
+            <option>500만 원 이하</option><option>500~1,000만 원</option>
+            <option>1,000~1,500만 원</option><option>1,500~2,000만 원</option>
+            <option>2,000만 원 초과</option>
+          </select>
+        </div>
+        <div class="form-row" style="margin-bottom:0">
+          <label class="form-label">희망 상환기간<span class="req">*</span></label>
+          <select class="form-select" id="f-period">
+            <option value="">선택</option>
+            <option>12개월</option><option>24개월</option><option>36개월</option>
+            <option>48개월</option><option>60개월</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top:14px">
+        <label class="form-label">대출 목적<span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-btn" onclick="toggleRadio(this,'purpose')"><input type="radio" name="purpose" value="생활비"><div class="radio-dot"></div>생활비</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'purpose')"><input type="radio" name="purpose" value="의료비"><div class="radio-dot"></div>의료비</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'purpose')"><input type="radio" name="purpose" value="주거비"><div class="radio-dot"></div>주거비</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'purpose')"><input type="radio" name="purpose" value="학자금"><div class="radio-dot"></div>학자금</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'purpose')"><input type="radio" name="purpose" value="대환(고금리→저금리)"><div class="radio-dot"></div>대환 (고금리→저금리)</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'purpose')"><input type="radio" name="purpose" value="창업·사업자금"><div class="radio-dot"></div>창업·사업자금</label>
+          <label class="radio-btn" onclick="toggleRadio(this,'purpose')"><input type="radio" name="purpose" value="기타"><div class="radio-dot"></div>기타</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">대출 목적 및 사용 계획 <span class="req">*</span></label>
+        <textarea class="form-textarea" id="f-purpose-detail" placeholder="대출 용도, 현재 상황, 해당 자금이 필요한 이유를 구체적으로 작성해 주세요. (최소 50자 이상)" style="min-height:120px"></textarea>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">상환 계획 <span class="req">*</span></label>
+        <textarea class="form-textarea" id="f-repay-plan" placeholder="어떻게 상환할 계획인지 구체적으로 적어주세요. (수입원, 상환 방법, 예비 계획 등)" style="min-height:100px"></textarea>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">위기 극복 계획</label>
+        <textarea class="form-textarea" id="f-recovery" placeholder="현재 경제적 어려움을 어떻게 극복할 계획인지 작성해 주세요." style="min-height:80px"></textarea>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">대출 부결 화면 캡처 <span class="opt">(있는 경우 첨부)</span></label>
+        <label class="file-upload" id="file-lbl">
+          <input type="file" id="f-reject-file" accept="image/*,.pdf" multiple onchange="showFile(this,'file-fn')">
+          <span style="font-size:20px">📎</span>
+          <div><span style="font-size:13px;font-weight:600;color:var(--navy)">파일 선택</span><span style="font-size:12px;color:var(--text-muted);display:block;margin-top:2px">이미지(JPG, PNG) 또는 PDF</span></div>
+        </label>
+        <div class="file-name" id="file-fn"></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-back" onclick="goStep(2)">← 이전</button>
+        <button class="btn btn-primary" onclick="goStep(4)">다음: 심리진단 →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STEP 4 — 심리·행동 진단
+══════════════════════════════════ -->
+<div class="page" id="page4">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:var(--navy-light);font-size:18px">🧠</div>
+      <div><div class="card-title">심리·행동 진단</div><div class="card-desc">재무 행동 성향을 파악하는 진단입니다. 정답이 없으니 솔직하게 응답해 주세요.</div></div>
+    </div>
+    <div class="card-body">
+
+      <div class="info-box" style="margin-bottom:20px">
+        <span>💡</span><span>아래 문항은 대출 심사의 보조 자료로 활용됩니다. 1(전혀 그렇지 않다) ~ 5(매우 그렇다)로 응답해 주세요.</span>
+      </div>
+
+      <div id="psych-questions"></div>
+
+      <div style="margin-top:32px">
+        <p class="sec-title">최종 확인 및 동의</p>
+        <div style="background:var(--bg);border-radius:var(--radius);padding:20px;margin-bottom:16px;font-size:13px;color:var(--text-mid);line-height:1.8">
+          본인은 위 기재 사항이 사실임을 확인하며, 허위 기재 시 지원이 취소될 수 있음에 동의합니다.
+          수집된 정보는 포용금융 지원사업 심사 목적으로만 사용됩니다.
+          심사를 위한 추가 서류 요청 및 유선 상담에 응할 것에 동의합니다.
+        </div>
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text)">
+          <input type="checkbox" id="final-agree" style="margin-top:3px;accent-color:var(--navy);width:16px;height:16px">
+          <span>위 내용을 모두 확인하였으며, 개인정보 수집·이용에 동의합니다.</span>
+        </label>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-back" onclick="goStep(3)">← 이전</button>
+        <button class="btn btn-primary" id="submit-btn" onclick="submitForm()">✉ 신청서 최종 제출</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STEP 5 — 완료
+══════════════════════════════════ -->
+<div class="page" id="page5">
+  <div class="card">
+    <div class="complete-wrap">
+      <div class="complete-icon">✅</div>
+      <h2>신청이 완료되었습니다</h2>
+      <p>금융산업공익재단 × 사회연대은행 청년 희망사다리 금융지원사업에 신청해 주셔서 감사합니다.</p>
+      <div class="receipt-box">
+        <div class="receipt-label">접수번호</div>
+        <div class="receipt-num" id="receipt-display">—</div>
+      </div>
+      <p style="margin-top:0;color:var(--text-muted)">
+        담당자가 <strong style="color:var(--navy)">영업일 기준 7일 이내</strong> 등록하신 연락처로 연락드립니다.<br>
+        유선 상담 및 추가 서류 확인 후 최종 심사가 진행됩니다.<br><br>
+        <span style="color:var(--navy-mid);font-size:13px">📋 소득증빙 서류는 담당자 안내 시 제출해 주세요.</span>
+      </p>
+      <button class="btn btn-primary" style="max-width:200px;margin:28px auto 0" onclick="location.reload()">처음으로</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ── GAS URL ────────────────────────────────────────────────────
+const GAS_URL = 'YOUR_GAS_WEB_APP_URL_HERE';
+
+// ── 심리진단 문항 ─────────────────────────────────────────────
+const psychItems = [
+  {q:"금전적인 약속을 어기는 것은 관계에서 치명적이라고 생각한다.",factor:"정직·성실(H)"},
+  {q:"예산에 맞지 않으면 주변의 지출 권유를 단호히 거절한다.",factor:"정직·성실(H)"},
+  {q:"체면 때문에 무리해서 지출하는 편이다.",factor:"정직·성실(H)",rev:true},
+  {q:"남은 잔고나 갚아야 할 빚을 생각하면 불안해서 잠이 안 온다.",factor:"정서적 안정성(E)"},
+  {q:"연체가 발생할까 봐 항상 걱정한다.",factor:"정서적 안정성(E)"},
+  {q:"나의 경제 상황은 운보다 나의 노력에 달려 있다.",factor:"자기효능감(X)"},
+  {q:"예상치 못한 재무 위기도 침착하게 해결책을 찾을 수 있다.",factor:"자기효능감(X)"},
+  {q:"어려운 상황에서도 스스로를 믿고 포기하지 않는 편이다.",factor:"자기효능감(X)"},
+  {q:"대출 상환 약속을 반드시 지킬 의지가 있다.",factor:"상환의지(A)"},
+  {q:"어려울 때 지출을 먼저 통제한다.",factor:"상환의지(A)"},
+  {q:"지금의 어려움을 극복하고 더 나은 미래를 만들 수 있다고 확신한다.",factor:"상환의지(A)"},
+  {q:"한번 세운 상환 계획은 끝까지 지킨다.",factor:"성실성(C)"},
+  {q:"공과금·이자 납부 같은 재무 의무를 잊은 적이 거의 없다.",factor:"성실성(C)"},
+  {q:"충동적으로 계획에 없던 물건을 자주 구매한다.",factor:"성실성(C)",rev:true},
+  {q:"대박 가능성이 있으면 실패 위험이 반반이어도 과감히 도전한다.",factor:"위험추구(O)"},
+  {q:"무리한 빚을 내서라도 확실한 투자처에 돈을 빌릴 것이다.",factor:"위험추구(O)"},
+];
+
+function renderPsych(){
+  const c=document.getElementById('psych-questions');
+  const labels=['전혀\n그렇지 않다','그렇지\n않다','보통','그렇다','매우\n그렇다'];
+  c.innerHTML=psychItems.map((it,i)=>`
+    <div class="likert-q">
+      <div class="likert-factor">${it.factor}${it.rev?' (역채점)':''}</div>
+      <div class="likert-text">Q${i+1}. ${it.q}</div>
+      <div class="likert-scale">
+        <span class="likert-label">${labels[0]}</span>
+        <div class="likert-opts">
+          ${[1,2,3,4,5].map(v=>`<button class="likert-opt" onclick="pickLikert(this,${i})">${v}</button>`).join('')}
+        </div>
+        <span class="likert-label">${labels[4]}</span>
+      </div>
+    </div>`).join('');
+}
+function pickLikert(btn,idx){
+  btn.closest('.likert-opts').querySelectorAll('.likert-opt').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+// ── ELIGIBILITY ───────────────────────────────────────────────
+const eligState={};
+const eligKeys=['eq1','eq2','eq3','eq4','eq5'];
+function eligCheck(lbl,qid,res){
+  document.querySelectorAll(`.radio-btn`).forEach(l=>{if(l.querySelector(`input[name="${qid}"]`))l.classList.remove('selected')});
+  lbl.classList.add('selected');
+  eligState[qid]=res;
+  const s=document.getElementById(qid+'-stop');
+  if(s)s.style.display=res==='fail'?'block':'none';
+  const allPass=eligKeys.every(k=>eligState[k]==='pass');
+  const allAnswered=eligKeys.every(k=>k in eligState);
+  const pass=document.getElementById('elig-pass');
+  const btn=document.getElementById('elig-next');
+  if(allAnswered&&allPass){pass.style.display='block';btn.disabled=false;btn.style.opacity='1'}
+  else{pass.style.display='none';btn.disabled=true;btn.style.opacity='.45'}
+}
+
+// ── STEP NAVIGATION ──────────────────────────────────────────
+function goStep(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+  for(let i=0;i<5;i++){
+    const el=document.getElementById('si'+i);
+    if(!el)continue;
+    el.classList.remove('active','done');
+    const c=el.querySelector('.step-circle');
+    if(i<n){el.classList.add('done');c.textContent='✓'}
+    else if(i===n){el.classList.add('active');c.textContent=i+1}
+    else{c.textContent=i+1}
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── RADIO / CHECK TOGGLES ─────────────────────────────────────
+function toggleRadio(lbl,name){
+  document.querySelectorAll(`.radio-btn`).forEach(l=>{if(l.querySelector(`input[name="${name}"]`))l.classList.remove('selected')});
+  lbl.classList.add('selected');
+}
+function toggleCheck(lbl){lbl.classList.toggle('selected')}
+
+// ── CALC ──────────────────────────────────────────────────────
+const incMids=[50,75,125,175,225,300];
+function updateCalc(){
+  let inc=0;
+  document.querySelectorAll('input[name="income"]').forEach((r,i)=>{if(r.closest('.radio-btn').classList.contains('selected'))inc=incMids[i]});
+  const ids=['exp-rent','exp-food','exp-medical','exp-comm','exp-loan','exp-etc'];
+  const exp=ids.reduce((s,id)=>{const el=document.getElementById(id);return s+(el?parseInt(el.value||0):0)},0);
+  const net=inc-exp;
+  document.getElementById('ci').textContent=inc?inc+' 만 원':'— 만 원';
+  document.getElementById('ce').textContent=exp?'-'+exp+' 만 원':'— 만 원';
+  const nel=document.getElementById('cn');
+  if(inc){nel.textContent=net+' 만 원';nel.style.color=net>=0?'#7FE0A8':'#FF8A80'}
+  else{nel.textContent='— 만 원';nel.style.color='#7FE0A8'}
+}
+
+// ── DEBT TABLE ─────────────────────────────────────────────────
+function addDebtRow(){
+  const tbody=document.getElementById('debt-tbody');
+  const tr=document.createElement('tr');
+  tr.innerHTML=`
+    <td><select class="form-input" style="min-width:100px;font-size:12px;padding:6px 8px"><option>유형</option><option>은행</option><option>저축은행</option><option>카드사</option><option>캐피탈</option><option>대부업</option><option>정책금융</option><option>기타</option></select></td>
+    <td><input class="form-input" type="text" placeholder="기관명" style="min-width:80px"></td>
+    <td><input class="form-input" type="number" placeholder="0.0" style="min-width:55px"></td>
+    <td><input class="form-input" type="number" placeholder="0" style="min-width:65px"></td>
+    <td><input class="form-input" type="number" placeholder="0" style="min-width:65px"></td>
+    <td><button onclick="removeRow(this)" style="background:none;border:none;color:#CC4444;cursor:pointer;font-size:18px;padding:0 4px">×</button></td>`;
+  tbody.appendChild(tr);
+}
+function removeRow(btn){
+  const r=btn.closest('tr'),tb=r.closest('tbody');
+  if(tb.querySelectorAll('tr').length>1)r.remove();
+}
+
+// ── FILE ───────────────────────────────────────────────────────
+function showFile(inp,id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  if(inp.files.length>0){el.textContent='✓ '+Array.from(inp.files).map(f=>f.name).join(', ');el.style.display='block'}
+  else{el.style.display='none'}
+}
+
+// ── COLLECT ALL DATA ───────────────────────────────────────────
+function collectData(){
+  const now=new Date();
+  const d={};
+  d['신청일시']=now.toLocaleString('ko-KR',{timeZone:'Asia/Seoul'});
+  d['신청일']=now.toLocaleDateString('ko-KR',{timeZone:'Asia/Seoul'});
+  // 자격
+  d['자격_연령']=eligState.eq1||'';
+  d['자격_소득']=eligState.eq2||'';
+  d['자격_저신용']=eligState.eq3||'';
+  d['자격_연체없음']=eligState.eq4||'';
+  d['자격_체납없음']=eligState.eq5||'';
+  // 기본정보
+  d['성명']=document.getElementById('f-name').value.trim();
+  d['생년월일']=document.getElementById('f-birth').value.trim();
+  d['성별']=getRadio('gender');
+  d['휴대전화']=document.getElementById('f-phone').value.trim();
+  d['이메일']=document.getElementById('f-email').value.trim();
+  d['주소']=document.getElementById('f-address').value.trim();
+  d['거주형태']=getRadio('residence');
+  d['직장명']=document.getElementById('f-employer').value.trim();
+  d['재직기간']=document.getElementById('f-work-period').value.trim();
+  d['근무형태']=document.getElementById('f-work-type').value;
+  d['가구원수']=document.getElementById('f-household').value;
+  d['가구구성']=document.getElementById('f-household-type').value;
+  // 재무
+  d['소득구간']=getRadioText('income');
+  d['소득증빙']=getRadio('income-proof');
+  d['지출_주거']=getNum('exp-rent');
+  d['지출_식비']=getNum('exp-food');
+  d['지출_의료']=getNum('exp-medical');
+  d['지출_통신']=getNum('exp-comm');
+  d['지출_대출상환']=getNum('exp-loan');
+  d['지출_기타']=getNum('exp-etc');
+  d['부채명세']=collectTable('debt-tbody');
+  // 취약성
+  d['복지수급']=getChecked('welfare-group');
+  d['금융취약사유']=getChecked('fin-vuln-group');
+  d['생활위기유형']=getChecked('crisis-group');
+  // 대출목적
+  d['신청금액']=document.getElementById('f-amount').value;
+  d['희망상환기간']=document.getElementById('f-period').value;
+  d['대출목적']=getRadio('purpose');
+  d['목적상세']=document.getElementById('f-purpose-detail').value.trim();
+  d['상환계획']=document.getElementById('f-repay-plan').value.trim();
+  d['위기극복계획']=document.getElementById('f-recovery').value.trim();
+  // 심리진단
+  collectPsych(d);
+  return d;
+}
+function getRadio(name){
+  const s=document.querySelector(`.radio-btn.selected input[name="${name}"]`);
+  return s?s.value||s.closest('.radio-btn').textContent.trim():'';
+}
+function getRadioText(name){
+  const s=document.querySelector(`.radio-btn.selected input[name="${name}"]`);
+  return s?s.closest('.radio-btn').textContent.replace(/\s+/g,' ').trim():'';
+}
+function getNum(id){const el=document.getElementById(id);return el?el.value||'0':'0'}
+function getChecked(gid){
+  const g=document.getElementById(gid);if(!g)return'';
+  return Array.from(g.querySelectorAll('.check-btn.selected')).map(b=>b.textContent.trim()).join(', ');
+}
+function collectTable(tid){
+  const tb=document.getElementById(tid);if(!tb)return'';
+  const rows=[];
+  tb.querySelectorAll('tr').forEach(tr=>{
+    const vals=[];
+    tr.querySelectorAll('input,select').forEach(el=>vals.push(el.value.trim()));
+    if(vals.some(v=>v&&v!=='유형'))rows.push(vals.join('|'));
+  });
+  return rows.join('\n');
+}
+function collectPsych(d){
+  const revIdx=[2,13,14,15];
+  const scores=[];
+  document.querySelectorAll('#psych-questions .likert-opts').forEach((opts,i)=>{
+    const sel=opts.querySelector('.likert-opt.selected');
+    const v=sel?parseInt(sel.textContent):'';
+    scores.push(v);
+    d[`심리_Q${i+1}`]=v;
+  });
+  // factor averages
+  const fac={H:[0,1,2],E:[3,4],X:[5,6,7],A:[8,9,10],C:[11,12,13],O:[14,15]};
+  Object.entries(fac).forEach(([k,idxs])=>{
+    const vals=idxs.map(i=>{
+      let v=scores[i];if(v==='')return null;
+      return revIdx.includes(i)?6-v:v;
+    }).filter(v=>v!==null);
+    d[`심리_${k}요인`]=vals.length?( vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(2):'';
+  });
+}
+
+// ── SUBMIT ─────────────────────────────────────────────────────
+async function submitForm(){
+  if(!document.getElementById('final-agree').checked){alert('동의 체크를 해주세요.');return}
+  const btn=document.getElementById('submit-btn');
+  btn.disabled=true;btn.textContent='⏳ 제출 중...';
+  const data=collectData();
+  const now=new Date();
+  const receipt=`KFIF-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(Math.floor(Math.random()*9000)+1000)}`;
+  data['접수번호']=receipt;
+  try{
+    if(GAS_URL!=='YOUR_GAS_WEB_APP_URL_HERE'){
+      await fetch(GAS_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),mode:'no-cors'});
+    }else{console.log('[개발모드] 수집 데이터:',data)}
+  }catch(e){console.error(e)}
+  document.getElementById('receipt-display').textContent=receipt;
+  goStep(5);
+  btn.disabled=false;btn.textContent='✉ 신청서 최종 제출';
+}
+
+// ── INIT ───────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',()=>{
+  renderPsych();
+  document.querySelectorAll('input[name="income"]').forEach((r,i)=>{
+    r.closest('.radio-btn').addEventListener('click',()=>setTimeout(updateCalc,50));
+  });
+});
+</script>
+</body>
+</html>
