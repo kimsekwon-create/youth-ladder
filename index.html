@@ -2288,13 +2288,17 @@
                         style="text-align: right"
                       />
                     </td>
+                    <!-- [YL-fix2] 금리 입력 → 구간 드롭다운 -->
                     <td>
-                      <input
-                        class="form-input"
-                        type="number"
-                        placeholder="0.0"
-                        style="text-align: right"
-                      />
+                      <select class="form-select" style="min-width:100px;font-size:12px;padding:6px 4px">
+                        <option value="">선택</option>
+                        <option>무이자</option>
+                        <option>5% 미만</option>
+                        <option>5~10%</option>
+                        <option>10~15%</option>
+                        <option>15~20%</option>
+                        <option>20% 이상</option>
+                      </select>
                     </td>
                     <td>
                       <select class="form-select" style="font-size:12px;padding:6px 4px">
@@ -4184,7 +4188,8 @@
     <td><input class="form-input" type="number" placeholder="0" style="text-align:right"></td>
     <td><input class="form-input" type="number" placeholder="0" style="text-align:right"></td>
     <td><input class="form-input" type="number" placeholder="0" oninput="syncBankTotal()" style="text-align:right"></td>
-    <td><input class="form-input" type="number" placeholder="0.0" style="text-align:right"></td>
+    <!-- [YL-fix2] 금리 입력 → 구간 드롭다운 -->
+    <td><select class="form-select" style="min-width:100px;font-size:12px;padding:6px 4px"><option value="">선택</option><option>무이자</option><option>5% 미만</option><option>5~10%</option><option>10~15%</option><option>15~20%</option><option>20% 이상</option></select></td>
     <td><select class="form-select" style="font-size:12px;padding:6px 4px"><option value="">선택</option><option>없음</option><option>부동산</option><option>차량</option><option>기타</option></select></td>
     <td><input class="form-input" type="month" style="font-size:12px"></td>
     <td><input class="form-input" type="month" style="font-size:12px"></td>
@@ -4991,6 +4996,8 @@
             q3_repay_source:     data['Q3_상환재원및월납'],
             q3_difficulty:       data['Q3_재무관리어려운점'],
             q3_overcome:         data['Q3_극복계획'],
+            // [YL-fix2] 동의 체크 상태 저장
+            consent_agreed:      document.getElementById('final-agree')?.checked || false,
             form_data:           data,
           }]);
 
