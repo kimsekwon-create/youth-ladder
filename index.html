@@ -2161,6 +2161,8 @@
               <table class="debt-table" id="bank-table">
                 <thead>
                   <tr>
+                    <!-- [YL-4] 대환 대상 체크박스 -->
+                    <th style="width: 52px; text-align: center">대환</th>
                     <th style="min-width: 90px">대출처 유형</th>
                     <th style="min-width: 140px">상품 유형</th>
                     <th style="min-width: 75px">기관명</th>
@@ -2176,6 +2178,14 @@
                 </thead>
                 <tbody id="bank-tbody">
                   <tr>
+                    <!-- [YL-4] 대환 대상 체크박스 -->
+                    <td style="text-align: center">
+                      <input
+                        type="checkbox"
+                        class="yl4-refin"
+                        style="accent-color: var(--primary); width: 16px; height: 16px"
+                      />
+                    </td>
                     <td>
                       <select
                         class="form-select"
@@ -2316,6 +2326,8 @@
               <table class="debt-table" id="nonbank-table">
                 <thead>
                   <tr>
+                    <!-- [YL-4] 대환 대상 체크박스 -->
+                    <th style="width: 52px; text-align: center">대환</th>
                     <th style="min-width: 145px">대출처</th>
                     <th style="min-width: 85px">기관명</th>
                     <th style="min-width: 90px">약정금액</th>
@@ -2329,6 +2341,14 @@
                 </thead>
                 <tbody id="nonbank-tbody">
                   <tr>
+                    <!-- [YL-4] 대환 대상 체크박스 -->
+                    <td style="text-align: center">
+                      <input
+                        type="checkbox"
+                        class="yl4-refin"
+                        style="accent-color: var(--primary); width: 16px; height: 16px"
+                      />
+                    </td>
                     <td>
                       <select
                         class="form-select"
@@ -3317,6 +3337,25 @@
           </div>
           <div class="card-body">
             <p class="sec-title">05-1 · 신청 내용</p>
+
+            <!-- [YL-4] 대환 대상 요약 -->
+            <div
+              id="yl4-refin-summary"
+              style="
+                display: none;
+                margin-bottom: 14px;
+                background: var(--primary-pale);
+                border: 1px solid #bdd8dc;
+                border-radius: var(--radius-sm);
+                padding: 12px 16px;
+                font-size: 13px;
+                color: var(--primary);
+                line-height: 1.7;
+              "
+            >
+              <div id="yl4-refin-body"></div>
+            </div>
+
             <div class="form-row">
               <label class="form-label"
                 >신청 금액<span class="req">*</span></label
@@ -4290,6 +4329,7 @@
         const tbody = document.getElementById("bank-tbody");
         const tr = document.createElement("tr");
         tr.innerHTML = `
+    <td style="text-align:center"><input type="checkbox" class="yl4-refin" style="accent-color:var(--primary);width:16px;height:16px"></td>
     <td><select class="form-select" style="font-size:12px;padding:6px 4px"><option value="">선택</option><option>은행</option><option>저축은행</option><option>카드사</option><option>캐피탈</option><option>보험사</option><option>기타</option></select></td>
     <td><select class="form-select" style="font-size:12px;padding:6px 4px"><option value="">선택</option><option>일반신용대출</option><option>주택담보대출</option><option>정책서민금융 (햇살론 등)</option><option>카드론</option><option>차량구입대출</option><option>기타</option></select></td>
     <td><input class="form-input" type="text" placeholder="기관명"></td>
@@ -4356,6 +4396,7 @@
         const tbody = document.getElementById("nonbank-tbody");
         const tr = document.createElement("tr");
         tr.innerHTML = `
+    <td style="text-align:center"><input type="checkbox" class="yl4-refin" style="accent-color:var(--primary);width:16px;height:16px"></td>
     <td><select class="form-select" style="width:100%;font-size:12px;padding:6px 4px" onchange="syncLoanTableTotal()">
       <option value="">선택</option><option>대부업체</option><option>학자금(장학재단)</option><option>서민금융진흥원</option><option>신용회복위원회</option><option>공단·지역농협 등</option><option>가족 및 지인</option><option>기타</option>
     </select></td>
@@ -4405,7 +4446,8 @@
       function syncBankTotal() {
         let b = 0;
         document.querySelectorAll("#bank-tbody tr").forEach((row) => {
-          const monthlyInputs = row.querySelectorAll("td:nth-child(6) input");
+          // [YL-4] 대환 체크박스 열 삽입으로 월상환 열이 6→7로 시프트
+          const monthlyInputs = row.querySelectorAll("td:nth-child(7) input");
           if (monthlyInputs[0]) b += parseInt(monthlyInputs[0].value || 0);
         });
         syncTotal(b);
@@ -4421,7 +4463,8 @@
         if (disp) disp.textContent = n + " 만 원";
         let b = 0;
         document.querySelectorAll("#bank-tbody tr").forEach((row) => {
-          const inp = row.querySelector("td:nth-child(6) input");
+          // [YL-4] 대환 체크박스 열 삽입으로 월상환 열이 6→7로 시프트
+          const inp = row.querySelector("td:nth-child(7) input");
           if (inp) b += parseInt(inp.value || 0);
         });
         syncTotal(b + n);
@@ -4495,7 +4538,8 @@
           let s = 0;
           tbody.querySelectorAll("tr").forEach((row) => {
             if (tbodyId === "bank-tbody") {
-              const inp = row.querySelector("td:nth-child(6) input");
+              // [YL-4] 대환 체크박스 열 삽입으로 월상환 열이 6→7로 시프트
+              const inp = row.querySelector("td:nth-child(7) input");
               if (inp) s += parseFloat(inp.value) || 0;
             } else {
               const nums = row.querySelectorAll('input[type="number"]');
@@ -4552,6 +4596,51 @@
         }
       }
 
+      // [YL-4] ── 대환 대상 요약 계산 ──────────────────────────
+      function computeRefinSummary() {
+        const items = [];
+        let total = 0;
+        const scan = (tbodyId, balNumIdx) => {
+          const tb = document.getElementById(tbodyId);
+          if (!tb) return;
+          tb.querySelectorAll("tr").forEach((row) => {
+            const cb = row.querySelector('input[type="checkbox"].yl4-refin');
+            if (!cb || !cb.checked) return;
+            const texts = row.querySelectorAll('input[type="text"]');
+            const nums = row.querySelectorAll('input[type="number"]');
+            const name = (texts[0]?.value || "").trim();
+            const bal = parseFloat(nums[balNumIdx]?.value) || 0;
+            if (!name && !bal) return;
+            items.push({ name: name || "(이름없음)", bal });
+            total += bal;
+          });
+        };
+        scan("bank-tbody", 1);    // bank: number[0]=약정,[1]=잔액,[2]=월상환,[3]=금리
+        scan("nonbank-tbody", 1); // nonbank: number[0]=약정,[1]=잔액,[2]=월상환
+        return { items, total };
+      }
+
+      // [YL-4] 대환 대상 요약 UI 업데이트
+      function updateRefinSummary() {
+        const { items, total } = computeRefinSummary();
+        const box = document.getElementById("yl4-refin-summary");
+        const body = document.getElementById("yl4-refin-body");
+        if (!box || !body) return;
+        if (items.length === 0) {
+          box.style.display = "none";
+          body.innerHTML = "";
+          return;
+        }
+        box.style.display = "";
+        const parts = items
+          .map((it) => `${it.name} 잔액 ${it.bal}만원`)
+          .join(" + ");
+        body.innerHTML =
+          "선택하신 대환 대상:<br>" +
+          parts +
+          ` = <strong>총 ${total}만원</strong>`;
+      }
+
       // [YL-3] DSR 트리거: 부채 테이블 & 소득 입력 변경 시 자동 재계산
       document.addEventListener("DOMContentLoaded", () => {
         ["bank-tbody", "nonbank-tbody", "personal-tbody"].forEach((id) => {
@@ -4572,6 +4661,17 @@
           if (el) el.addEventListener("input", calcDSR);
         });
         calcDSR();
+      });
+
+      // [YL-4] 대환 대상 요약 트리거: 체크박스 / 잔액 / 기관명 변경
+      document.addEventListener("DOMContentLoaded", () => {
+        ["bank-tbody", "nonbank-tbody"].forEach((id) => {
+          const tb = document.getElementById(id);
+          if (!tb) return;
+          tb.addEventListener("change", updateRefinSummary);
+          tb.addEventListener("input", updateRefinSummary);
+        });
+        updateRefinSummary();
       });
 
       // ── 신청서 진행 바 ────────────────────────────────────
@@ -4847,7 +4947,10 @@
         const rows = [];
         tb.querySelectorAll('tr').forEach(tr => {
           const vals = [];
-          tr.querySelectorAll('input,select').forEach(el => vals.push(el.value.trim()));
+          tr.querySelectorAll('input,select').forEach(el => {
+            if (el.type === 'checkbox') return; // [YL-4] 대환 체크박스는 별도 수집
+            vals.push(el.value.trim());
+          });
           if (vals.some(v => v && v !== '선택')) rows.push(vals.join('|'));
         });
         return rows.join('\n');
@@ -4926,6 +5029,14 @@
         d['부채_금융기관'] = collectTable('bank-tbody');
         d['부채_기타대출'] = collectTable('nonbank-tbody');
         d['부채_지인차용'] = collectTable('personal-tbody');
+        // [YL-4] 대환 대상 수집
+        {
+          const { items, total } = computeRefinSummary();
+          d['대환대상'] = items.length
+            ? items.map((it) => `${it.name}|${it.bal}만원`).join(' / ') +
+              ` / 총 ${total}만원`
+            : '';
+        }
         d['채무조정이력'] = getRadioVal('debt-adj');
         d['채무조정유형'] = getRadioVal('adj-type');
         d['채무조정월납액'] = document.getElementById('f-adj-monthly')?.value?.trim() || '';
