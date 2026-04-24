@@ -1646,35 +1646,80 @@
             </div>
           </div>
           <div class="card-body">
-            <p class="sec-title">최종 확인 및 동의</p>
-            <div style="background:var(--gray-50);border-radius:var(--radius-sm);padding:18px 20px;margin-bottom:16px;font-size:13px;color:var(--text-mid);line-height:1.8">
-              신청하실 내용이 모두 사실임을 확인해 주세요. 허위 기재 시 대출이 거절될 수 있습니다.<br />
-              수집된 정보는 청년 희망사다리 금융지원 심사 목적으로만 사용됩니다.<br />
-              심사를 위해 추가 서류 요청이나 담당자 유선 연락이 있을 수 있습니다.
+            <!-- [YL-req1] 동의서 전문 (개인(신용)정보 수집·이용 / 제공·조회 / 제3자 제공) -->
+            <!-- 항목 1 -->
+            <div style="margin-bottom:24px">
+              <p class="sec-title">1. 개인(신용)정보의 수집·이용에 관한 사항</p>
+              <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:14px 16px;font-size:13px;color:var(--text-mid);line-height:1.8;white-space:pre-line;margin-bottom:12px">■ 수집·이용 목적
+사회연대은행이 수행하는 지원사업과 관련하여 기초자료 확보, 자격검토, 심사, 대상자 선정 및 안내, 약정체결, 사후관리, 성과분석, 만족도 및 설문조사, 조사·연구, 민원(상담)처리, 분쟁해결, DM발송, 법령상 의무이행, 상환(채권)관리, 본인확인, 개인(신용)정보조회 등 사업지원 관계 설정·유지·이행·관리 목적
+
+■ 수집·이용할 개인(신용)정보 항목
+· 개인(신용)정보: 성명, 주소, 이메일, 전화번호, 재산·채무·소득·납세·연체정보, 직업정보, 기타 지원신청서에 기재된 정보
+· 고유식별정보: 주민등록번호, 여권번호, 운전면허번호, 외국인등록번호
+
+■ 보유·이용 기간
+동의서 제출 시점부터 동의 철회 시 또는 당해 지원사업의 업무목적 달성시까지
+
+동의 거부 시 사업지원 관계의 설정 또는 유지가 불가능할 수 있습니다.</div>
+              <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text);margin-bottom:8px">
+                <input type="checkbox" id="consent-collect" style="margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex-shrink:0" onchange="updateConsentState()"/>
+                <span>개인(신용)정보 수집·이용에 동의합니다</span>
+              </label>
+              <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text)">
+                <input type="checkbox" id="consent-collect-id" style="margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex-shrink:0" onchange="updateConsentState()"/>
+                <span>고유식별정보 수집·이용에 동의합니다</span>
+              </label>
             </div>
-            <div style="background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:16px 18px;margin-bottom:16px;font-size:12px;color:var(--text-mid);line-height:1.75">
-              <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px">
-                개인(신용)정보 수집·이용 동의 안내
-              </div>
-              <div style="font-weight:700;color:var(--text);margin-top:6px">수집·이용 목적</div>
-              <ul style="margin:4px 0 10px 18px;padding:0">
-                <li>청년 희망사다리 금융지원 자격 심사 및 대출 실행</li>
-                <li>심사·상담을 위한 본인확인 및 연락</li>
-                <li>동일인의 중복 신청 여부 확인 및 부정 수혜 방지</li>
-              </ul>
-              <div style="font-weight:700;color:var(--text)">보유 및 이용기간</div>
-              <ul style="margin:4px 0 0 18px;padding:0">
-                <li>대출 실행 여부와 무관하게 수집일로부터 관계 법령이 정한 기간 동안 보관 후 파기</li>
-                <li>서비스 부정이용 방지를 위한 최소한의 식별정보는 탈퇴일로부터 5년간 별도 DB에 분리 보관 후 파기됩니다.</li>
-              </ul>
+
+            <!-- 항목 2 -->
+            <div style="margin-bottom:24px">
+              <p class="sec-title">2. 개인(신용)정보의 제공·조회에 관한 사항</p>
+              <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:14px 16px;font-size:13px;color:var(--text-mid);line-height:1.8;white-space:pre-line;margin-bottom:12px">■ 제공·조회 대상기관
+코리아크레딧뷰로(주), NICE신용평가정보㈜, 한국평가데이터(주), 이크레더블(주), 한국신용정보원, 서민금융진흥원, 신용회복위원회, 신용보증재단중앙회, 정부기관, 지방자치단체, 공공기관 등
+
+■ 제공·조회 목적
+신청인의 개인(신용)정보조회, 중복지원 확인, 본인확인, 사후관리, 사업안내 등
+
+■ 제공·조회 동의 효력 기간
+동의서 제출 시점부터 당해 지원사업의 업무목적 달성시까지
+
+동의 거부 시 사업지원 관계의 설정 또는 유지가 불가능할 수 있습니다.</div>
+              <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text);margin-bottom:8px">
+                <input type="checkbox" id="consent-provide" style="margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex-shrink:0" onchange="updateConsentState()"/>
+                <span>개인(신용)정보 제공·조회에 동의합니다</span>
+              </label>
+              <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text)">
+                <input type="checkbox" id="consent-provide-id" style="margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex-shrink:0" onchange="updateConsentState()"/>
+                <span>고유식별정보 제공·조회에 동의합니다</span>
+              </label>
             </div>
-            <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text)">
-              <input type="checkbox" id="final-agree" style="margin-top:3px;accent-color:var(--primary);width:16px;height:16px" />
-              <span>네, 모두 확인했어요. 개인정보 수집·이용에 동의하며, 심사를 위한 추가 서류 제출 및 유선 상담에 응하겠습니다.</span>
-            </label>
+
+            <!-- 항목 3 -->
+            <div style="margin-bottom:8px">
+              <p class="sec-title">3. 개인(신용)정보의 제3자 제공에 관한 사항</p>
+              <div style="background:var(--gray-50);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:14px 16px;font-size:13px;color:var(--text-mid);line-height:1.8;white-space:pre-line;margin-bottom:12px">■ 정보를 제공받는 자
+기금처, 지원사업 위탁기관, 업무협력업체, 업무협력자, 업무수탁자, 정부기관, 지방자치단체, 공공기관, 회계법인, 법무법인 등
+
+■ 이용 목적
+지원사업의 현황파악, 결과보고, 관리감독, 설문조사, 사후관리, 위수탁업무 또는 협력업무 수행, 회계감사, 법령상 의무이행 등
+
+■ 보유·이용 기간
+동의서 제출 날로부터 동의 철회 시 또는 당해 지원사업의 업무목적 달성시까지
+
+동의 거부 시 사업지원 관계의 설정 또는 유지가 불가능할 수 있습니다.</div>
+              <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text);margin-bottom:8px">
+                <input type="checkbox" id="consent-third-party" style="margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex-shrink:0" onchange="updateConsentState()"/>
+                <span>개인(신용)정보 제3자 제공에 동의합니다</span>
+              </label>
+              <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text)">
+                <input type="checkbox" id="consent-third-party-id" style="margin-top:3px;accent-color:var(--primary);width:16px;height:16px;flex-shrink:0" onchange="updateConsentState()"/>
+                <span>고유식별정보 제3자 제공에 동의합니다</span>
+              </label>
+            </div>
+
             <div class="btn-group" style="margin-top:20px">
               <button class="btn-back" onclick="goStep(0)">← 이전</button>
-              <button class="btn btn-primary" onclick="agreeNext()">
+              <button class="btn btn-primary" id="agree-next-btn" onclick="agreeNext()" disabled>
                 동의하고 신청서 작성하기 →
               </button>
             </div>
@@ -1968,8 +2013,7 @@
 
             <!-- 가족 동거사항 테이블 -->
             <div class="form-row">
-              <label class="form-label">가족 및 동거인 현황
-                <span class="opt">(함께 사는 가족이 있으면 입력해 주세요. 없으면 비워두셔도 됩니다)</span>
+              <label class="form-label">가족 및 동거인 현황<!-- [YL-req1] 부연 설명 제거 -->
               </label>
               <div style="overflow-x:auto; margin-top:4px">
                 <table class="debt-table" id="family-table" style="min-width:520px">
@@ -2092,45 +2136,7 @@
             </div>
             <div class="error-msg" id="err-employer" style="margin-top:4px"></div>
 
-            <!-- [YL-5] 직장 유지 가능 여부 + 조건부 소득 변동 전망 -->
-            <div class="form-row" style="margin-top:20px">
-              <label class="form-label">직장 유지 가능 여부</label>
-              <div class="radio-group">
-                <label class="radio-btn" onclick="toggleRadio(this,'job-continuity');showCond('job-income-outlook',false)">
-                  <input type="radio" name="job-continuity" value="유지예정" />
-                  <div class="radio-dot"></div>예, 유지 예정
-                </label>
-                <label class="radio-btn" onclick="toggleRadio(this,'job-continuity');showCond('job-income-outlook',true)">
-                  <input type="radio" name="job-continuity" value="불확실" />
-                  <div class="radio-dot"></div>불확실
-                </label>
-                <label class="radio-btn" onclick="toggleRadio(this,'job-continuity');showCond('job-income-outlook',true)">
-                  <input type="radio" name="job-continuity" value="이직전환예정" />
-                  <div class="radio-dot"></div>이직·전환 예정
-                </label>
-              </div>
-              <div class="cond" id="job-income-outlook">
-                <label class="form-label" style="margin-top:12px">향후 소득 변동 전망</label>
-                <div class="radio-group" style="flex-wrap:wrap">
-                  <label class="radio-btn" onclick="toggleRadio(this,'income-outlook')">
-                    <input type="radio" name="income-outlook" value="감소가능" />
-                    <div class="radio-dot"></div>소득 감소 가능성 있음
-                  </label>
-                  <label class="radio-btn" onclick="toggleRadio(this,'income-outlook')">
-                    <input type="radio" name="income-outlook" value="감소확실" />
-                    <div class="radio-dot"></div>소득 감소 거의 확실
-                  </label>
-                  <label class="radio-btn" onclick="toggleRadio(this,'income-outlook')">
-                    <input type="radio" name="income-outlook" value="증가가능" />
-                    <div class="radio-dot"></div>소득 증가 가능성 있음
-                  </label>
-                  <label class="radio-btn" onclick="toggleRadio(this,'income-outlook')">
-                    <input type="radio" name="income-outlook" value="증가확실" />
-                    <div class="radio-dot"></div>소득 증가 거의 확실
-                  </label>
-                </div>
-              </div>
-            </div>
+            <!-- [YL-req1] 직장 유지 가능 여부 + 소득 변동 전망 블록 전체 삭제 -->
 
             <p class="sec-title" style="margin-top:28px">01-5 · 정부 지원 수혜 여부</p>
             <div class="form-row">
@@ -2247,9 +2253,9 @@
                         style="font-size: 12px; padding: 6px 4px"
                       >
                         <option value="">선택</option>
+                        <!-- [YL-req1] 햇살론 option 삭제 -->
                         <option>일반신용대출</option>
                         <option>주택담보대출</option>
-                        <option>정책서민금융 (햇살론 등)</option>
                         <option>카드론</option>
                         <option>차량구입대출</option>
                         <option>기타</option>
@@ -2405,6 +2411,7 @@
                         <option>학자금(장학재단)</option>
                         <option>서민금융진흥원</option>
                         <option>신용회복위원회</option>
+                        <option>신용보증재단</option><!-- [YL-req1] -->
                         <option>공단·지역농협 등</option>
                         <option>가족 및 지인</option>
                         <option>기타</option>
@@ -3101,8 +3108,8 @@
                   <div class="income-label">
                     기타 고정 지출
                     <span class="income-sub"
-                      >(위 항목에 포함되지 않는 정기 지출)</span
-                    >
+                      >(위 항목에 포함되지 않는 정기 지출 — 구독 서비스, 정기후원 등)</span
+                    ><!-- [YL-req1] 예시 추가 -->
                   </div>
                 </div>
                 <div class="income-input-wrap">
@@ -3237,27 +3244,7 @@
                     <option>300만 원 이상</option>
                   </select>
                 </div>
-                <div class="buffer-item">
-                  <span class="buffer-icon">🏷️</span>
-                  <div style="flex: 1">
-                    <div class="buffer-label">
-                      필요 시 처분·해지 가능한 자산
-                    </div>
-                    <div class="buffer-sub">예·적금, 차량, 귀금속 등</div>
-                  </div>
-                  <select
-                    class="form-select"
-                    id="buf-asset"
-                    style="width: 160px"
-                  >
-                    <option value="">선택</option>
-                    <option>없음 (0원)</option>
-                    <option>50만 원 미만</option>
-                    <option>50만~200만 원</option>
-                    <option>200만~500만 원</option>
-                    <option>500만 원 이상</option>
-                  </select>
-                </div>
+                <!-- [YL-req1] 처분·해지 가능한 자산 블록 삭제 (collectData의 위기대응_처분자산 키는 유지) -->
               </div>
             </div>
             <div class="form-row">
@@ -3308,101 +3295,38 @@
               <span>예시를 참고하되, 본인의 상황을 <strong>구체적이고 솔직하게</strong> 적어주세요. 완벽한 문장보다 실제 이야기가 더 중요합니다.</span>
             </div>
 
-            <!-- [YL-5] Q1 · 신청 배경 작성 가이드 강화 -->
+            <!-- [YL-req2] 신청배경 질문 2개로 축소 (기존 Q1~Q4 대체) -->
+            <!-- Q1. 부채 발생 이유 -->
             <div class="form-row" style="border-left:3px solid #7b3fae;padding-left:14px">
               <label class="form-label" style="color:#4a1a6b;font-size:14px">
-                Q1. 지금 이 상황은 어떻게 시작됐나요?<span class="req">*</span>
+                Q1. 부채 발생 이유<span class="req">*</span>
               </label>
               <p style="font-size:12px;color:var(--text-muted);margin-bottom:10px;line-height:1.7">
                 ① 언제부터, 어떤 이유로 어려워졌는지 (부채·연체 발생 배경)<br>
                 ② 현재 이 대출이 필요한 구체적인 이유를 함께 적어주세요.
               </p>
-              <textarea class="form-textarea" id="f-background"
+              <textarea class="form-textarea" id="f-q1-background"
                 placeholder="예) 3년 전 다니던 회사가 갑자기 폐업하면서 실직했고, 재취업이 오래 걸려 그 사이에 카드값과 생활비가 밀리기 시작했습니다. 지금은 재취업에 성공했지만 밀린 고금리 대출 이자가 매달 부담이 되어, 이번 대출로 고금리 채무를 정리하고 싶습니다. (5~10줄 권장)"
-                style="min-height:180px" maxlength="800"
-                oninput="countChars(this,'cnt-background')"></textarea>
-              <div class="char-counter"><span id="cnt-background">0</span> / 800자</div>
-              <p style="font-size:11px;color:var(--text-muted);margin-top:6px">
-                ※ 외부 요인 vs 본인 관리 문제 등 본인 인식과 상환 의지를 함께 파악합니다.
-              </p>
+                style="min-height:160px" maxlength="800"
+                oninput="countChars(this,'cnt-q1-background')"></textarea>
+              <div class="char-counter"><span id="cnt-q1-background">0</span> / 800자</div>
               <div class="error-msg" id="err-background"></div>
             </div>
 
-            <!-- Q2 — 이 돈으로 무엇을 해결할 건가 -->
+            <!-- Q2. 대환 필요 채무 현황 및 자금 사용계획 -->
             <div class="form-row" style="border-left:3px solid #7b3fae;padding-left:14px;margin-top:24px">
               <label class="form-label" style="color:#4a1a6b;font-size:14px">
-                Q2. 이 대출로 무엇을 해결하려 하나요?<span class="req">*</span>
+                Q2. 대환 필요 채무 현황 및 자금 사용계획<span class="req">*</span>
               </label>
               <p style="font-size:12px;color:var(--text-muted);margin-bottom:10px;line-height:1.7">
-                앞에 입력하신 부채 중 이번 대출로 갚으려는 채무가 무엇인지 구체적으로 알려주세요. 독촉·연체 상황이 있다면 함께 적어주시고, 대환 후 월 상환 부담이 어떻게 달라지는지도 적어주시면 좋습니다.<br>
-                <span style="color:#aaa">예) A저축은행 카드론 300만 원 전액 대환 예정 (현재 2개월 연체 중) / 대환 후 월 상환액이 25만 원 → 12만 원으로 줄어들 것으로 예상됩니다.</span>
+                대환하려는 채무와 대출금 사용 계획을 구체적으로 적어주세요.
               </p>
-              <textarea class="form-textarea" id="f-use-repay-plan"
-                placeholder="어떤 채무를 갚으려는지, 대환 후 월 부담이 어떻게 달라지는지 적어주세요."
-                style="min-height:130px" maxlength="800"
-                oninput="countChars(this,'cnt-plan')"></textarea>
-              <div class="char-counter"><span id="cnt-plan">0</span> / 800자</div>
+              <textarea class="form-textarea" id="f-q2-plan"
+                placeholder="예) 현재 A저축은행 연 18% 대출 300만원, B카드론 연 15% 200만원을 보유 중입니다. 이번 대출로 두 채무를 대환하여 월 상환 부담을 줄이고, 남은 금액은 생활 안정 자금으로 사용할 예정입니다."
+                style="min-height:140px" maxlength="800"
+                oninput="countChars(this,'cnt-q2-plan')"></textarea>
+              <div class="char-counter"><span id="cnt-q2-plan">0</span> / 800자</div>
               <div class="error-msg" id="err-plan"></div>
-            </div>
-
-            <!-- Q3 — 어떻게 갚을 것인가 (3 sub-fields) -->
-            <div style="border-left:3px solid #7b3fae;padding-left:14px;margin-top:24px">
-              <div class="form-label" style="color:#4a1a6b;font-size:14px;margin-bottom:4px">
-                Q3. 어떻게 갚을 계획이고, 힘든 상황이 오면 어떻게 하실 건가요?
-                <span class="opt">(선택)</span>
-              </div>
-              <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;line-height:1.7">
-                아래 세 가지를 짧게 적어주세요. 길지 않아도 됩니다.
-              </p>
-
-              <!-- Q3-① 상환 재원 -->
-              <div style="background:#f8f0ff;border:1px solid #e0c8f0;border-radius:10px;padding:16px 18px;margin-bottom:12px">
-                <div style="font-size:12px;font-weight:700;color:#6b21a8;margin-bottom:8px;letter-spacing:0.03em">
-                  ① 어떤 소득으로, 매월 얼마씩 상환할 계획인가요?
-                </div>
-                <textarea class="form-textarea" id="f-q3-repay"
-                  placeholder="예) 매달 급여 185만 원에서 자동이체로 128,000원을 납입할 계획입니다."
-                  style="min-height:72px;background:#fff" maxlength="400"
-                  oninput="countChars(this,'cnt-q3-repay')"></textarea>
-                <div class="char-counter"><span id="cnt-q3-repay">0</span> / 400자</div>
-              </div>
-
-              <!-- Q3-② 어려운 점 -->
-              <div style="background:#f8f0ff;border:1px solid #e0c8f0;border-radius:10px;padding:16px 18px;margin-bottom:12px">
-                <div style="font-size:12px;font-weight:700;color:#6b21a8;margin-bottom:8px;letter-spacing:0.03em">
-                  ② 현재 재무관리에서 가장 어려운 점이 무엇인가요?
-                </div>
-                <textarea class="form-textarea" id="f-q3-difficulty"
-                  placeholder="예) 카드값 통제 / 수입 불안정 / 월말 잔고 부족 / 가족 부양 부담 등 솔직하게 적어주세요."
-                  style="min-height:72px;background:#fff" maxlength="400"
-                  oninput="countChars(this,'cnt-q3-diff')"></textarea>
-                <div class="char-counter"><span id="cnt-q3-diff">0</span> / 400자</div>
-              </div>
-
-              <!-- Q3-③ 극복 방안 -->
-              <div style="background:#f8f0ff;border:1px solid #e0c8f0;border-radius:10px;padding:16px 18px">
-                <div style="font-size:12px;font-weight:700;color:#6b21a8;margin-bottom:8px;letter-spacing:0.03em">
-                  ③ 소득이 줄거나 예상치 못한 지출이 생기면 어떻게 대처하실 건가요?
-                </div>
-                <textarea class="form-textarea" id="f-q3-overcome"
-                  placeholder="예) 불필요한 구독서비스를 먼저 정리하고, 필요 시 담당자와 일정을 협의하겠습니다."
-                  style="min-height:72px;background:#fff" maxlength="400"
-                  oninput="countChars(this,'cnt-q3-over')"></textarea>
-                <div class="char-counter"><span id="cnt-q3-over">0</span> / 400자</div>
-              </div>
-
-            </div><!-- /Q3 -->
-
-            <!-- [YL-5] Q4 · 1년 후 희망 (Q3에서 분리) -->
-            <div class="form-row" style="border-left:3px solid #7b3fae;padding-left:14px;margin-top:24px">
-              <label class="form-label" style="color:#4a1a6b;font-size:14px">
-                Q4. 앞으로 1년 후, 어떤 상황이 되기를 바라시는지 자유롭게 적어주세요.
-              </label>
-              <textarea class="form-textarea" id="f-future-hope"
-                placeholder="2~3줄 정도로 편하게 적어주세요."
-                style="min-height:80px" maxlength="400"
-                oninput="countChars(this,'cnt-future-hope')"></textarea>
-              <div class="char-counter"><span id="cnt-future-hope">0</span> / 400자</div>
             </div>
 
           </div>
@@ -3467,145 +3391,21 @@
               </div>
               <div class="error-msg" id="err-amount"></div>
             </div>
-            <div class="form-row">
-              <label class="form-label"
-                >희망 상환기간<span class="req">*</span></label
-              >
-              <div class="radio-group">
-                <label class="radio-btn" onclick="toggleRadio(this,'period')"
-                  ><input type="radio" name="period" value="12개월" />
-                  <div class="radio-dot"></div>
-                  12개월</label
-                >
-                <label class="radio-btn" onclick="toggleRadio(this,'period')"
-                  ><input type="radio" name="period" value="24개월" />
-                  <div class="radio-dot"></div>
-                  24개월</label
-                >
-                <label class="radio-btn" onclick="toggleRadio(this,'period')"
-                  ><input type="radio" name="period" value="36개월" />
-                  <div class="radio-dot"></div>
-                  36개월</label
-                >
-              </div>
+            <!-- [YL-req2] 자동이체 동의 체크박스 복구 -->
+            <div class="form-row" style="margin-top:16px">
+              <label class="check-row" style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
+                <input type="checkbox" id="autodebit-agree" style="margin-top:3px;accent-color:var(--primary)">
+                <span style="font-size:13px;color:var(--text-muted);line-height:1.6">
+                  대출 실행 시 원리금 자동이체에 동의합니다.
+                  <br><span style="font-size:11px">(자동이체 미동의 시 대출 실행이 제한될 수 있습니다)</span>
+                </span>
+              </label>
             </div>
+            <!-- [YL-req1] 희망 상환기간 블록 삭제 (collectData의 희망상환기간 키는 유지) -->
 
-            <p class="sec-title">05-2 · 사용 목적</p>
-            <div class="form-row">
-              <label class="form-label"
-                >이번 대출을 주로 어디에 사용하실 예정인가요?<span class="req"
-                  >*</span
-                ></label
-              >
-              <div class="radio-group">
-                <label
-                  class="radio-btn"
-                  onclick="toggleRadio(this,'loan-purpose')"
-                  ><input
-                    type="radio"
-                    name="loan-purpose"
-                    value="고금리대출상환"
-                  />
-                  <div class="radio-dot"></div>
-                  고금리 대출 상환 (대환)</label
-                >
-                <label
-                  class="radio-btn"
-                  onclick="toggleRadio(this,'loan-purpose')"
-                  ><input
-                    type="radio"
-                    name="loan-purpose"
-                    value="생계비·생활비"
-                  />
-                  <div class="radio-dot"></div>
-                  생계비·생활비</label
-                >
-                <label
-                  class="radio-btn"
-                  onclick="toggleRadio(this,'loan-purpose')"
-                  ><input type="radio" name="loan-purpose" value="의료비" />
-                  <div class="radio-dot"></div>
-                  의료비</label
-                >
-                <label
-                  class="radio-btn"
-                  onclick="toggleRadio(this,'loan-purpose')"
-                  ><input type="radio" name="loan-purpose" value="주거관련" />
-                  <div class="radio-dot"></div>
-                  주거 관련 (보증금·수리)</label
-                >
-                <label
-                  class="radio-btn"
-                  onclick="toggleRadio(this,'loan-purpose')"
-                  ><input
-                    type="radio"
-                    name="loan-purpose"
-                    value="사업운영자금"
-                  />
-                  <div class="radio-dot"></div>
-                  사업 운영자금</label
-                >
-                <label
-                  class="radio-btn"
-                  onclick="toggleRadio(this,'loan-purpose')"
-                  ><input type="radio" name="loan-purpose" value="교육비" />
-                  <div class="radio-dot"></div>
-                  교육비</label
-                >
-                <label
-                  class="radio-btn"
-                  onclick="toggleRadio(this,'loan-purpose')"
-                  ><input type="radio" name="loan-purpose" value="기타" />
-                  <div class="radio-dot"></div>
-                  기타</label
-                >
-              </div>
-            </div>
+            <!-- [YL-req1] 05-2 사용 목적 섹션 전체 삭제 (collectData의 대출목적 키는 유지) -->
 
-            <p class="sec-title">05-3 · 상환 계획</p>
-            <div style="background:var(--primary-pale);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:18px;font-size:13px;color:var(--text-mid);line-height:1.7">
-              💬 상환 계획은 앞의 <strong>Q3 ①②③</strong>에서 작성하셨습니다. 아래에서 자동이체 동의만 확인해 주세요.
-            </div>
-            <div class="form-row">
-              <label class="form-label"
-                >대출 상환 자동이체 설정 동의<span class="req">*</span></label
-              >
-              <div
-                style="
-                  background: var(--primary-pale);
-                  border: 1.5px solid var(--border);
-                  border-radius: var(--radius-sm);
-                  padding: 14px 16px;
-                "
-              >
-                <label
-                  style="
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 10px;
-                    cursor: pointer;
-                    font-size: 14px;
-                    color: var(--text);
-                  "
-                >
-                  <input
-                    type="checkbox"
-                    id="autodebit-agree"
-                    style="
-                      margin-top: 3px;
-                      accent-color: var(--primary);
-                      width: 16px;
-                      height: 16px;
-                      flex-shrink: 0;
-                    "
-                  />
-                  <span
-                    >[필수] 대출 상환금이 지정 계좌에서 매월 자동이체 방식으로
-                    납부됨에 동의합니다.</span
-                  >
-                </label>
-              </div>
-            </div>
+            <!-- [YL-req1] 05-3 상환 계획 섹션 전체 삭제 (autodebit-agree는 [YL-req2]로 05-1 하단에 복구) -->
           </div>
         </div>
 
@@ -3911,12 +3711,17 @@
 
             <!-- [YL-A] 최종 확인 및 동의 섹션은 page1(동의 단계)로 이동, 이전 버튼 제거 -->
 
-            <div class="btn-group" style="justify-content:center">
+            <!-- [YL-req1] 최종 제출 버튼 왼쪽에 '이전' 버튼 추가 (flex, gap:12px) -->
+            <div class="btn-group" style="justify-content:center;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+              <button type="button" onclick="goStep(1)"
+                style="background:#fff;border:1.5px solid var(--gray-300);
+                color:var(--text);padding:14px 32px;border-radius:var(--radius);
+                font-size:15px;font-weight:600;cursor:pointer">← 이전</button>
               <button
                 class="btn btn-primary"
                 id="submit-btn"
                 onclick="submitForm()"
-                style="background: linear-gradient(135deg, #1e5c2e, #2e6b2e)"
+                style="background: linear-gradient(135deg, #1e5c2e, #2e6b2e);width:auto"
               >
                 신청서 최종 제출
               </button>
@@ -4038,10 +3843,19 @@
       }
 
       // [YL-A] 동의 페이지 진행 핸들러
+      // [YL-req1] 동의서 6개 체크박스 검증 및 다음 버튼 상태 업데이트
+      const CONSENT_IDS = ['consent-collect','consent-collect-id','consent-provide','consent-provide-id','consent-third-party','consent-third-party-id'];
+      function allConsentsChecked() {
+        return CONSENT_IDS.every(id => document.getElementById(id)?.checked);
+      }
+      function updateConsentState() {
+        const btn = document.getElementById('agree-next-btn');
+        if (!btn) return;
+        btn.disabled = !allConsentsChecked();
+      }
       function agreeNext() {
-        const cb = document.getElementById("final-agree");
-        if (!cb || !cb.checked) {
-          alert("개인(신용)정보 수집·이용 동의를 체크해 주세요.");
+        if (!allConsentsChecked()) {
+          alert("모든 동의 항목을 확인하고 동의해 주세요.");
           return;
         }
         goStep(2);
@@ -4183,7 +3997,7 @@
         tr.innerHTML = `
     <td style="text-align:center"><input type="checkbox" class="yl4-refin" style="accent-color:var(--primary);width:16px;height:16px"></td>
     <td><select class="form-select" style="font-size:12px;padding:6px 4px"><option value="">선택</option><option>은행</option><option>저축은행</option><option>카드사</option><option>캐피탈</option><option>보험사</option><option>기타</option></select></td>
-    <td><select class="form-select" style="font-size:12px;padding:6px 4px"><option value="">선택</option><option>일반신용대출</option><option>주택담보대출</option><option>정책서민금융 (햇살론 등)</option><option>카드론</option><option>차량구입대출</option><option>기타</option></select></td>
+    <td><select class="form-select" style="font-size:12px;padding:6px 4px"><option value="">선택</option><option>일반신용대출</option><option>주택담보대출</option><option>카드론</option><option>차량구입대출</option><option>기타</option></select></td><!-- [YL-req1] 햇살론 option 삭제 -->
     <td><input class="form-input" type="text" placeholder="기관명"></td>
     <td><input class="form-input" type="number" placeholder="0" style="text-align:right"></td>
     <td><input class="form-input" type="number" placeholder="0" style="text-align:right"></td>
@@ -4251,7 +4065,7 @@
         tr.innerHTML = `
     <td style="text-align:center"><input type="checkbox" class="yl4-refin" style="accent-color:var(--primary);width:16px;height:16px"></td>
     <td><select class="form-select" style="width:100%;font-size:12px;padding:6px 4px" onchange="syncLoanTableTotal()">
-      <option value="">선택</option><option>대부업체</option><option>학자금(장학재단)</option><option>서민금융진흥원</option><option>신용회복위원회</option><option>공단·지역농협 등</option><option>가족 및 지인</option><option>기타</option>
+      <option value="">선택</option><option>대부업체</option><option>학자금(장학재단)</option><option>서민금융진흥원</option><option>신용회복위원회</option><option>신용보증재단</option><option>공단·지역농협 등</option><option>가족 및 지인</option><option>기타</option><!-- [YL-req1] -->
     </select></td>
     <td><input class="form-input" type="text" placeholder="기관명" style="width:100%"></td>
     <td><div style="display:flex;align-items:center;gap:3px"><input class="form-input" type="number" placeholder="0" style="width:100%;text-align:right" oninput="syncLoanTableTotal()"><span style="font-size:11px;color:var(--text-muted);white-space:nowrap">만</span></div></td>
@@ -4899,13 +4713,9 @@
         d['위기대응_처분자산'] = document.getElementById('buf-asset')?.value || '';
         // 신청배경·대출계획
         d['정부지원수혜'] = collectGovSupport();
-        d['Q1_부채발생이유'] = document.getElementById('f-background')?.value?.trim() || '';
-        d['Q2_대환채무및사용계획'] = document.getElementById('f-use-repay-plan')?.value?.trim() || '';
-        d['Q3_상환재원및월납']  = document.getElementById('f-q3-repay')?.value?.trim() || '';
-        d['Q3_재무관리어려운점'] = document.getElementById('f-q3-difficulty')?.value?.trim() || '';
-        d['Q3_극복계획']        = document.getElementById('f-q3-overcome')?.value?.trim() || '';
-        // [YL-5] Q4 · 1년 후 희망
-        d['Q4_1년후희망']       = document.getElementById('f-future-hope')?.value?.trim() || '';
+        // [YL-req2] Q1~Q4 키를 Q1/Q2 2개로 교체 (Q3_*, Q4_* 키 제거)
+        d['Q1_부채발생이유'] = document.getElementById('f-q1-background')?.value.trim() || '';
+        d['Q2_대환채무및사용계획'] = document.getElementById('f-q2-plan')?.value.trim() || '';
         d['신청금액'] = (document.getElementById('f-amount')?.value || '') + '만 원';
         d['희망상환기간'] = getRadioVal('period');
         d['대출목적'] = getRadioVal('loan-purpose');
@@ -4924,9 +4734,9 @@
 
       // ── 중간 제출 ─────────────────────────────────────────
       function submitMid() {
-        // Q1·Q2 필수 검증
-        const q1 = document.getElementById('f-background');
-        const q2 = document.getElementById('f-use-repay-plan');
+        // [YL-req2] Q1·Q2 필수 검증 — 신규 ID (f-q1-background, f-q2-plan)
+        const q1 = document.getElementById('f-q1-background');
+        const q2 = document.getElementById('f-q2-plan');
         if (!q1?.value?.trim()) {
           const err = document.getElementById('err-background');
           if (err) err.textContent = 'Q1 부채 발생 이유를 입력해 주세요.';
@@ -4949,8 +4759,10 @@
 
       // ── 최종 제출 ─────────────────────────────────────────
       function submitForm() {
-        if (!document.getElementById("final-agree").checked) {
-          alert("최종 동의를 체크해 주세요.");
+        // [YL-req1] 동의서 6개 체크박스 전원 확인
+        if (!allConsentsChecked()) {
+          alert("모든 동의 항목을 확인하고 동의해 주세요.");
+          goStep(1);
           return;
         }
         submitComplete();
@@ -4993,11 +4805,16 @@
             qual_no_delinquency: data['자격_체납없음'] === 'pass',
             q1_background:       data['Q1_부채발생이유'],
             q2_repay_plan:       data['Q2_대환채무및사용계획'],
-            q3_repay_source:     data['Q3_상환재원및월납'],
-            q3_difficulty:       data['Q3_재무관리어려운점'],
-            q3_overcome:         data['Q3_극복계획'],
-            // [YL-fix2] 동의 체크 상태 저장
-            consent_agreed:      document.getElementById('final-agree')?.checked || false,
+            // [YL-req1] 개인(신용)정보 동의서 6개 체크 상태 반영
+            consent_collect:        document.getElementById('consent-collect')?.checked || false,
+            consent_collect_id:     document.getElementById('consent-collect-id')?.checked || false,
+            consent_provide:        document.getElementById('consent-provide')?.checked || false,
+            consent_provide_id:     document.getElementById('consent-provide-id')?.checked || false,
+            consent_third_party:    document.getElementById('consent-third-party')?.checked || false,
+            consent_third_party_id: document.getElementById('consent-third-party-id')?.checked || false,
+            consent_agreed: ['consent-collect','consent-collect-id','consent-provide',
+              'consent-provide-id','consent-third-party','consent-third-party-id']
+              .every(id => document.getElementById(id)?.checked),
             form_data:           data,
           }]);
 
@@ -5079,7 +4896,9 @@
 
       // ── 초기화 ────────────────────────────────────────────
       // [YL-C] renderPsych() 호출 제거
-      document.addEventListener("DOMContentLoaded", () => {});
+      document.addEventListener("DOMContentLoaded", () => {
+        updateConsentState(); // [YL-req1] 동의서 체크 상태 초기화
+      });
 
       // [YL-1] ── 자동저장 (localStorage) ──────────────────────
       (function () {
