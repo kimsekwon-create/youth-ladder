@@ -1005,6 +1005,7 @@
 
       /* ── 유효성 검사 ──────────────────────────── */
       .form-input.error,
+      .form-select.error,
       .form-textarea.error,
       .income-input-wrap input.error {
         border-color: #c0392b !important;
@@ -4978,12 +4979,95 @@
         return ok;
       }
 
+      function loanFieldValue(el) {
+        if (!el) return '';
+        if (el.type === 'checkbox') return el.checked ? 'checked' : '';
+        return String(el.value || '').trim();
+      }
+
+      function clearLoanRowErrors(tbodyId) {
+        document.querySelectorAll(`#${tbodyId} .error`).forEach((el) => el.classList.remove('error'));
+      }
+
+      function validateLoanTableRows(config) {
+        clearLoanRowErrors(config.tbodyId);
+        const tbody = document.getElementById(config.tbodyId);
+        if (!tbody) return true;
+
+        let ok = true;
+        const incompleteRows = [];
+        tbody.querySelectorAll('tr').forEach((row, index) => {
+          const controls = Array.from(row.querySelectorAll('input, select'));
+          const started = controls.some((el) => loanFieldValue(el));
+          if (!started) return;
+
+          const missing = [];
+          config.fields.forEach(({ selector, label }) => {
+            const el = row.querySelector(selector);
+            if (!loanFieldValue(el)) {
+              el?.classList.add('error');
+              missing.push(label);
+            } else {
+              el.classList.remove('error');
+            }
+          });
+
+          if (missing.length) {
+            ok = false;
+            incompleteRows.push(`${index + 1}행(${missing.join(', ')})`);
+          }
+        });
+
+        if (!ok) {
+          const anchor = document.getElementById(config.tableId)?.closest('div');
+          showRuntimeError(anchor, `${config.name}에서 입력을 시작한 행은 모든 핵심 칸을 입력해 주세요: ${incompleteRows.join(' / ')}`);
+        }
+        return ok;
+      }
+
+      function validateLoanRows() {
+        const bankOk = validateLoanTableRows({
+          name: '금융기관 대출',
+          tableId: 'bank-table',
+          tbodyId: 'bank-tbody',
+          fields: [
+            { selector: 'td:nth-child(2) select', label: '유형' },
+            { selector: 'td:nth-child(3) select', label: '상품' },
+            { selector: 'td:nth-child(4) input', label: '기관명' },
+            { selector: 'td:nth-child(5) input', label: '약정금액' },
+            { selector: 'td:nth-child(6) input', label: '현재잔액' },
+            { selector: 'td:nth-child(7) input', label: '월 상환원리금' },
+            { selector: 'td:nth-child(8) select', label: '금리' },
+            { selector: 'td:nth-child(9) select', label: '담보' },
+            { selector: 'td:nth-child(10) input', label: '대출시작' },
+            { selector: 'td:nth-child(11) input', label: '대출만료' },
+          ],
+        });
+        const nonbankOk = validateLoanTableRows({
+          name: '기타 대출',
+          tableId: 'nonbank-table',
+          tbodyId: 'nonbank-tbody',
+          fields: [
+            { selector: 'td:nth-child(2) select', label: '대출처' },
+            { selector: 'td:nth-child(3) input', label: '기관명' },
+            { selector: 'td:nth-child(4) input', label: '약정금액' },
+            { selector: 'td:nth-child(5) input', label: '현재잔액' },
+            { selector: 'td:nth-child(6) input', label: '월 상환원리금' },
+            { selector: 'td:nth-child(7) select', label: '금리' },
+            { selector: 'td:nth-child(8) input', label: '대출시작' },
+            { selector: 'td:nth-child(9) input', label: '대출만료' },
+          ],
+        });
+        return bankOk && nonbankOk;
+      }
+
       // 제출 직전 숫자·서술형 핵심 항목을 검증해 빈 신청서 접수를 막는다.
       function validateApplicationBeforeSubmit() {
         document.querySelectorAll(".yl-runtime-error").forEach((el) => el.remove());
         let ok = validateStep1();
         if (!validateRadioGroup('debt-adj', '채무조정 이력을 선택해 주세요.')) ok = false;
         if (!validateDebtAdjustmentCurrentDetails()) ok = false;
+        if (!validateLoanRows()) ok = false;
 
         if (!validateMonthlyIncome()) ok = false;
         if (!validateManwonUnitFields()) ok = false;
